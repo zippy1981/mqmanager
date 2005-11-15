@@ -1,0 +1,37 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MQManager.GUI", "src\MQManager.GUI\MQManager.GUI.csproj", "{A9CC6556-5E48-4958-952F-87480A06B4E3}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MQManager.SPI", "src\MQManager.SPI\MQManager.SPI.csproj", "{E3B9C0BF-8FED-40D7-B78B-58849964D8CB}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MQManager.SPI.MSMQ", "src\MQManager.SPI.MSMQ\MQManager.SPI.MSMQ.csproj", "{800FDFA4-E412-41A2-8D3A-34143F330183}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{A9CC6556-5E48-4958-952F-87480A06B4E3}.Debug.ActiveCfg = Debug|.NET
+		{A9CC6556-5E48-4958-952F-87480A06B4E3}.Debug.Build.0 = Debug|.NET
+		{A9CC6556-5E48-4958-952F-87480A06B4E3}.Release.ActiveCfg = Release|.NET
+		{A9CC6556-5E48-4958-952F-87480A06B4E3}.Release.Build.0 = Release|.NET
+		{E3B9C0BF-8FED-40D7-B78B-58849964D8CB}.Debug.ActiveCfg = Debug|.NET
+		{E3B9C0BF-8FED-40D7-B78B-58849964D8CB}.Debug.Build.0 = Debug|.NET
+		{E3B9C0BF-8FED-40D7-B78B-58849964D8CB}.Release.ActiveCfg = Release|.NET
+		{E3B9C0BF-8FED-40D7-B78B-58849964D8CB}.Release.Build.0 = Release|.NET
+		{800FDFA4-E412-41A2-8D3A-34143F330183}.Debug.ActiveCfg = Debug|.NET
+		{800FDFA4-E412-41A2-8D3A-34143F330183}.Debug.Build.0 = Debug|.NET
+		{800FDFA4-E412-41A2-8D3A-34143F330183}.Release.ActiveCfg = Release|.NET
+		{800FDFA4-E412-41A2-8D3A-34143F330183}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

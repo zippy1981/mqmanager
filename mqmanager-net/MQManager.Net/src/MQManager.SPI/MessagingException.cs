@@ -23,14 +23,21 @@ namespace MQManager.SPI
 	/// </summary>
 	public class MessagingException : Exception
 	{
-		public MessagingException(string message)
-		{
+		private Exception exception;
 
-		}
-
-		public MessagingException(Exception ex)
+		public MessagingException(string message) : base(message)
 		{
 			
+		}
+
+		public MessagingException(Exception ex) : base(ex.Message)
+		{
+			
+		}
+
+		public MessagingException(string message, Exception ex) : base(message)
+		{
+			this.exception = ex;
 		}
 	}
 }

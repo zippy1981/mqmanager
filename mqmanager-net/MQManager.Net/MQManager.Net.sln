@@ -11,6 +11,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MQManager.SPI.MSMQ", "src\M
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MQManagerSetup", "src\MQManagerSetup\MQManagerSetup.vdproj", "{8DC34CEF-AE61-4D5C-8A45-E2CED42593FE}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MQManagerSetupSource", "src\MQManagerSetupSource\MQManagerSetupSource.vdproj", "{11C37B52-EA16-4DE7-8080-8AF2FAE38B9E}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
@@ -29,6 +37,10 @@ Global
 		{800FDFA4-E412-41A2-8D3A-34143F330183}.Debug.Build.0 = Debug|.NET
 		{800FDFA4-E412-41A2-8D3A-34143F330183}.Release.ActiveCfg = Release|.NET
 		{800FDFA4-E412-41A2-8D3A-34143F330183}.Release.Build.0 = Release|.NET
+		{8DC34CEF-AE61-4D5C-8A45-E2CED42593FE}.Debug.ActiveCfg = Debug
+		{8DC34CEF-AE61-4D5C-8A45-E2CED42593FE}.Release.ActiveCfg = Release
+		{11C37B52-EA16-4DE7-8080-8AF2FAE38B9E}.Debug.ActiveCfg = Debug
+		{11C37B52-EA16-4DE7-8080-8AF2FAE38B9E}.Release.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection

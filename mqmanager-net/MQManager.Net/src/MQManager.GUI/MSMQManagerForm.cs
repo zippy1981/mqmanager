@@ -19,6 +19,8 @@ using System.Collections;
 using System.IO;
 using System.Windows.Forms;
 using Microsoft.Win32;
+using MQManager.GUI.Panels;
+using MQManager.GUI.Settings;
 using MQManager.SPI;
 using MQManager.SPI.MSMQ;
 
@@ -27,8 +29,11 @@ namespace MQManager.GUI
 	/// <summary>
 	/// Summary description for Form1.
 	/// </summary>
-	public class MSMQManagerForm : System.Windows.Forms.Form
+	public class MSMQManagerForm : System.Windows.Forms.Panel
 	{
+
+		private SettingsManager settings = new SettingsManager();
+
 		private System.Windows.Forms.Label queuePathLabel;
 		private System.Windows.Forms.TextBox queuePath;
 
@@ -53,8 +58,14 @@ namespace MQManager.GUI
 		public MSMQManagerForm()
 		{
 			InitializeComponent();
-			this.SettingsChanged += new SettingsListener(this.UpdateSettings);
-			this.queuePath.Text = GetSetting("queuePath");
+			this.SettingsChanged += new SettingsManager.SettingsListener(settings.UpdateSettings);
+			this.queuePath.Text = settings.GetSetting("queuePath");
+		}
+
+		public MSMQManagerForm(string connectionString) : this()
+		{
+			queuePath.Text = connectionString;
+			Submit_Click(null, null);
 		}
 
 		/// <summary>
@@ -185,7 +196,6 @@ namespace MQManager.GUI
 			// 
 			// MSMQManagerForm
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
 			this.ClientSize = new System.Drawing.Size(520, 381);
 			this.Controls.Add(this.deleteButton);
 			this.Controls.Add(this.saveButton);
@@ -198,22 +208,12 @@ namespace MQManager.GUI
 			this.Controls.Add(this.queuePathLabel);
 			this.Controls.Add(this.listMessagesButton);
 			this.Controls.Add(this.queuePath);
-			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "MSMQManagerForm";
 			this.Text = "MQManager";
 			this.ResumeLayout(false);
 
 		}
 		#endregion
-
-		/// <summary>
-		/// The main entry point for the application.
-		/// </summary>
-		[STAThread]
-		static void Main() 
-		{
-			Application.Run(new MSMQManagerForm());
-		}
 
 		private IMessagingProvider messagingProvider;
 
@@ -389,26 +389,9 @@ namespace MQManager.GUI
 		
 		}
 
-		private void UpdateSettings(string key, string value)
-		{
-			RegistryKey reg = Registry.CurrentUser;
-            reg = reg.CreateSubKey(@"Software\Digital Focus\MQManager");
-			reg.SetValue(key, value);
-			reg.Close();
-		}
 
-		private string GetSetting(string key)
-		{
-			RegistryKey reg = Registry.CurrentUser;
-            reg = reg.CreateSubKey(@"Software\Digital Focus\MQManager");
-			string val = (string)reg.GetValue(key);
-			reg.Close();		
-			return val;
-		}
-
-        public event SettingsListener SettingsChanged;
+        public event SettingsManager.SettingsListener SettingsChanged;
 	}
 
-	public delegate void SettingsListener(string key, string value);
 
 }

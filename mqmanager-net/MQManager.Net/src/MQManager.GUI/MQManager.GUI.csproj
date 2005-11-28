@@ -86,7 +86,7 @@
                 />
                 <Reference
                     Name = "System.XML"
-                    AssemblyName = "System.XML"
+                    AssemblyName = "System.Xml"
                     HintPath = "..\..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
                 <Reference
@@ -109,27 +109,54 @@
                 />
                 <File
                     RelPath = "AssemblyInfo.cs"
+                    SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "ForwardMessageDialog.cs"
+                    RelPath = "MQManagerForm.cs"
                     SubType = "Form"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "ForwardMessageDialog.resx"
-                    DependentUpon = "ForwardMessageDialog.cs"
+                    RelPath = "MQManagerForm.resx"
+                    DependentUpon = "MQManagerForm.cs"
                     BuildAction = "EmbeddedResource"
                 />
                 <File
                     RelPath = "MSMQManagerForm.cs"
-                    SubType = "Form"
+                    SubType = "Component"
                     BuildAction = "Compile"
                 />
                 <File
                     RelPath = "MSMQManagerForm.resx"
                     DependentUpon = "MSMQManagerForm.cs"
                     BuildAction = "EmbeddedResource"
+                />
+                <Folder RelPath = "Controls\" />
+                <File
+                    RelPath = "Panels\ConnectDialog.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Panels\ConnectDialog.resx"
+                    DependentUpon = "ConnectDialog.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "Panels\ForwardMessageDialog.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Panels\ForwardMessageDialog.resx"
+                    DependentUpon = "ForwardMessageDialog.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "Settings\SettingsManager.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
                 />
             </Include>
         </Files>

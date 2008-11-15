@@ -19,7 +19,6 @@ using System.Collections;
 using System.Messaging;
 using MQManager.GUI;
 using MQManager.SPI;
-using MQManager.SPI.MSMQ;
 
 namespace MQManager.SPI.MSMQ
 {
@@ -140,7 +139,7 @@ namespace MQManager.GUI
 	class MSMQMessagingTransaction : IMessagingTransaction
 	{
 		private MessageQueueTransaction transaction = new MessageQueueTransaction();
-		private bool shared;
+		private readonly bool shared;
 
 		public MSMQMessagingTransaction()
 		{

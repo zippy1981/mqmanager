@@ -15,8 +15,13 @@
  */
 
 using System;
+using System.Diagnostics;
+using System.IO;
 using System.Messaging;
-using MQManager.SPI;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace MQManager.SPI.MSMQ
 {
@@ -35,14 +40,70 @@ namespace MQManager.SPI.MSMQ
 		public MessageContents(Message msg)
 		{
 			this.Id = msg.Id;
-			this.MessageLabel = msg.Label;
-            read(msg);
+			read(msg);
 		}
 
 		private void read(Message msg)
 		{
-			msg.Formatter = new ActiveXMessageFormatter();	
-			MessageBody = msg.Body.ToString();
+			try 
+			{
+				msg.Formatter = new BinaryMessageFormatter();
+				// To trip the catch -- I dont know of a better way than this
+				msg.Body.GetType();
+			}
+			catch(SerializationException ex) 
+			{
+				MessageBody = ex.Message;
+				return;
+			}
+			catch (Exception)
+			{
+				try
+				{
+					msg.Formatter = new ActiveXMessageFormatter();
+				
+					// To trip the catch -- I dont know of a better way than this
+					msg.Body.GetType();
+				}
+
+				catch (InvalidOperationException)
+				{
+					try 
+					{
+						// We are going to assume that this is the least perferable form of serialization for a message.
+						msg.Formatter = new XmlMessageFormatter();				
+						// To trip the catch -- I dont know of a better way than this
+						msg.Body.GetType();
+					}
+					catch (InvalidOperationException ex)
+					{
+						System.Diagnostics.Trace.WriteLine("Type: " + ex.GetType().Name + " Message: " + ex.Message);
+						MessageBody = ex.Message;
+						return;
+					}
+				}
+			}
+
+			this.MessageLabel = (msg.Label == null || msg.Label == "")
+				? msg.Body.GetType().Name
+				: msg.Label;
+
+
+			XmlSerializer serializer = new XmlSerializer(msg.Body.GetType());
+
+
+			try 
+			{
+				StringBuilder sb = new StringBuilder();
+				XmlWriter wtr = new XmlTextWriter(new StringWriter(sb));
+				serializer.Serialize(wtr, msg.Body);
+				MessageBody = sb.ToString();
+			}
+			catch (Exception ex)
+			{
+				Trace.WriteLine("Exception occurred serializing message. Type: " + ex.GetType().FullName + " Message: " + ex.Message);
+				MessageBody = msg.Body.ToString();
+			}
 		}
 
 		public string Id

@@ -23,7 +23,7 @@ namespace MQManager.GUI
 		/// <summary>
 		/// Summary description for ForwardMessageDialog.
 		/// </summary>
-		public class ConnectDialog : System.Windows.Forms.Form
+		public class ConnectMessageDialog : System.Windows.Forms.Form
 		{
 		
 			const string JOURNAL = "\\Journal$";
@@ -31,16 +31,16 @@ namespace MQManager.GUI
 
 			private System.Windows.Forms.Label label1;
 			private System.Windows.Forms.TextBox connectionString;
-			private System.Windows.Forms.Button forwardButton;
-			private System.Windows.Forms.Button cancelButton;
 			private System.Windows.Forms.CheckBox journalCheckBox;
 			private System.Windows.Forms.CheckBox deadletterCheckBox;
+			private System.Windows.Forms.Button cmdForward;
+			private System.Windows.Forms.Button cmdCancel;
 			/// <summary>
 			/// Required designer variable.
 			/// </summary>
 			private System.ComponentModel.Container components = null;
 
-			public ConnectDialog()
+			public ConnectMessageDialog()
 			{
 				//
 				// Required for Windows Form Designer support
@@ -75,8 +75,8 @@ namespace MQManager.GUI
 			private void InitializeComponent()
 			{
 				this.connectionString = new System.Windows.Forms.TextBox();
-				this.forwardButton = new System.Windows.Forms.Button();
-				this.cancelButton = new System.Windows.Forms.Button();
+				this.cmdForward = new System.Windows.Forms.Button();
+				this.cmdCancel = new System.Windows.Forms.Button();
 				this.label1 = new System.Windows.Forms.Label();
 				this.journalCheckBox = new System.Windows.Forms.CheckBox();
 				this.deadletterCheckBox = new System.Windows.Forms.CheckBox();
@@ -84,62 +84,70 @@ namespace MQManager.GUI
 				// 
 				// connectionString
 				// 
-				this.connectionString.Location = new System.Drawing.Point(8, 32);
+				this.connectionString.Location = new System.Drawing.Point(10, 37);
 				this.connectionString.Name = "connectionString";
-				this.connectionString.Size = new System.Drawing.Size(360, 20);
+				this.connectionString.Size = new System.Drawing.Size(432, 22);
 				this.connectionString.TabIndex = 0;
 				this.connectionString.Text = "";
 				this.connectionString.TextChanged += new System.EventHandler(this.connectionString_TextChanged);
 				// 
-				// forwardButton
+				// cmdForward
 				// 
-				this.forwardButton.Location = new System.Drawing.Point(8, 104);
-				this.forwardButton.Name = "forwardButton";
-				this.forwardButton.TabIndex = 1;
-				this.forwardButton.Text = "Connect";
-				this.forwardButton.Click += new System.EventHandler(this.connect_Click);
+				this.cmdForward.Location = new System.Drawing.Point(10, 120);
+				this.cmdForward.Name = "cmdForward";
+				this.cmdForward.Size = new System.Drawing.Size(90, 27);
+				this.cmdForward.TabIndex = 1;
+				this.cmdForward.Text = "C&onnect";
+				this.cmdForward.Click += new System.EventHandler(this.connect_Click);
 				// 
-				// cancelButton
+				// cmdCancel
 				// 
-				this.cancelButton.Location = new System.Drawing.Point(96, 104);
-				this.cancelButton.Name = "cancelButton";
-				this.cancelButton.TabIndex = 2;
-				this.cancelButton.Text = "Cancel";
-				this.cancelButton.Click += new System.EventHandler(this.cancel_Click);
+				this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+				this.cmdCancel.Location = new System.Drawing.Point(115, 120);
+				this.cmdCancel.Name = "cmdCancel";
+				this.cmdCancel.Size = new System.Drawing.Size(90, 27);
+				this.cmdCancel.TabIndex = 2;
+				this.cmdCancel.Text = "&Cancel";
+				this.cmdCancel.Click += new System.EventHandler(this.cancel_Click);
 				// 
 				// label1
 				// 
-				this.label1.Location = new System.Drawing.Point(8, 8);
+				this.label1.Location = new System.Drawing.Point(10, 9);
 				this.label1.Name = "label1";
+				this.label1.Size = new System.Drawing.Size(120, 27);
 				this.label1.TabIndex = 3;
 				this.label1.Text = "Queue Path";
 				// 
 				// journalCheckBox
 				// 
-				this.journalCheckBox.Location = new System.Drawing.Point(8, 64);
+				this.journalCheckBox.Location = new System.Drawing.Point(10, 74);
 				this.journalCheckBox.Name = "journalCheckBox";
+				this.journalCheckBox.Size = new System.Drawing.Size(124, 28);
 				this.journalCheckBox.TabIndex = 4;
 				this.journalCheckBox.Text = "View Journal";
 				this.journalCheckBox.CheckedChanged += new System.EventHandler(this.journalCheckBox_CheckedChanged);
 				// 
 				// deadletterCheckBox
 				// 
-				this.deadletterCheckBox.Location = new System.Drawing.Point(120, 64);
+				this.deadletterCheckBox.Location = new System.Drawing.Point(144, 74);
 				this.deadletterCheckBox.Name = "deadletterCheckBox";
+				this.deadletterCheckBox.Size = new System.Drawing.Size(125, 28);
 				this.deadletterCheckBox.TabIndex = 5;
 				this.deadletterCheckBox.Text = "Deadletter";
-				this.deadletterCheckBox.CheckedChanged += new System.EventHandler(deadletterCheckBox_CheckedChanged);
+				this.deadletterCheckBox.CheckedChanged += new System.EventHandler(this.deadletterCheckBox_CheckedChanged);
 				// 
 				// ConnectMessageDialog
 				// 
-				this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-				this.ClientSize = new System.Drawing.Size(384, 149);
+				this.AcceptButton = this.cmdForward;
+				this.AutoScaleBaseSize = new System.Drawing.Size(6, 15);
+				this.CancelButton = this.cmdCancel;
+				this.ClientSize = new System.Drawing.Size(460, 171);
 				this.Controls.Add(this.deadletterCheckBox);
 				this.Controls.Add(this.journalCheckBox);
 				this.Controls.Add(this.connectionString);
 				this.Controls.Add(this.label1);
-				this.Controls.Add(this.cancelButton);
-				this.Controls.Add(this.forwardButton);
+				this.Controls.Add(this.cmdCancel);
+				this.Controls.Add(this.cmdForward);
 				this.Name = "ConnectMessageDialog";
 				this.Text = "Connect to Queue";
 				this.ResumeLayout(false);

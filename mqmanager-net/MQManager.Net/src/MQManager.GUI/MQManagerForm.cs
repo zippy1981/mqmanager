@@ -78,13 +78,13 @@ namespace MQManager.GUI
 			this.mainMenu = new System.Windows.Forms.MenuItem();
 			this.menuItemNew = new System.Windows.Forms.MenuItem();
 			this.menuItemNewConnection = new System.Windows.Forms.MenuItem();
+			this.menuItem1 = new System.Windows.Forms.MenuItem();
 			this.menuItemClose = new System.Windows.Forms.MenuItem();
 			this.MenuItemExit = new System.Windows.Forms.MenuItem();
-			this.menuItem6 = new System.Windows.Forms.MenuItem();
-			this.mainTabs = new System.Windows.Forms.TabControl();
-			this.menuItem1 = new System.Windows.Forms.MenuItem();
 			this.menuItem2 = new System.Windows.Forms.MenuItem();
 			this.menuItem3 = new System.Windows.Forms.MenuItem();
+			this.menuItem6 = new System.Windows.Forms.MenuItem();
+			this.mainTabs = new System.Windows.Forms.TabControl();
 			this.SuspendLayout();
 			// 
 			// mainMenu1
@@ -101,7 +101,7 @@ namespace MQManager.GUI
 																					 this.menuItemNew,
 																					 this.menuItemClose,
 																					 this.MenuItemExit});
-			this.mainMenu.Text = "File";
+			this.mainMenu.Text = "&File";
 			// 
 			// menuItemNew
 			// 
@@ -109,42 +109,29 @@ namespace MQManager.GUI
 			this.menuItemNew.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
 																						this.menuItemNewConnection,
 																						this.menuItem1});
-			this.menuItemNew.Text = "New";
+			this.menuItemNew.Text = "&New";
 			// 
 			// menuItemNewConnection
 			// 
 			this.menuItemNewConnection.Index = 0;
-			this.menuItemNewConnection.Text = "Connection";
+			this.menuItemNewConnection.Text = "C&onnection";
 			this.menuItemNewConnection.Click += new System.EventHandler(this.OpenTab);
-			// 
-			// menuItemClose
-			// 
-			this.menuItemClose.Index = 1;
-			this.menuItemClose.Text = "Close";
-			// 
-			// MenuItemExit
-			// 
-			this.MenuItemExit.Index = 2;
-			this.MenuItemExit.Text = "Exit";
-			// 
-			// menuItem6
-			// 
-			this.menuItem6.Index = 2;
-			this.menuItem6.Text = "";
-			// 
-			// mainTabs
-			// 
-			this.mainTabs.Location = new System.Drawing.Point(0, 0);
-			this.mainTabs.Name = "mainTabs";
-			this.mainTabs.SelectedIndex = 0;
-			this.mainTabs.Size = new System.Drawing.Size(856, 528);
-			this.mainTabs.TabIndex = 0;
-			this.mainTabs.SelectedIndexChanged += new System.EventHandler(this.mainTabs_SelectedIndexChanged);
 			// 
 			// menuItem1
 			// 
 			this.menuItem1.Index = 1;
-			this.menuItem1.Text = "Queue";
+			this.menuItem1.Text = "&Queue";
+			// 
+			// menuItemClose
+			// 
+			this.menuItemClose.Index = 1;
+			this.menuItemClose.Text = "&Close";
+			// 
+			// MenuItemExit
+			// 
+			this.MenuItemExit.Index = 2;
+			this.MenuItemExit.Text = "E&xit";
+			this.MenuItemExit.Click += new System.EventHandler(this.MenuItemExit_Click);
 			// 
 			// menuItem2
 			// 
@@ -158,10 +145,23 @@ namespace MQManager.GUI
 			this.menuItem3.Index = 0;
 			this.menuItem3.Text = "Properties";
 			// 
+			// menuItem6
+			// 
+			this.menuItem6.Index = 2;
+			this.menuItem6.Text = "";
+			// 
+			// mainTabs
+			// 
+			this.mainTabs.Location = new System.Drawing.Point(0, 0);
+			this.mainTabs.Name = "mainTabs";
+			this.mainTabs.SelectedIndex = 0;
+			this.mainTabs.Size = new System.Drawing.Size(1027, 609);
+			this.mainTabs.TabIndex = 0;
+			// 
 			// MQManagerForm
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(856, 529);
+			this.AutoScaleBaseSize = new System.Drawing.Size(6, 15);
+			this.ClientSize = new System.Drawing.Size(1027, 610);
 			this.Controls.Add(this.mainTabs);
 			this.Menu = this.mainMenu1;
 			this.Name = "MQManagerForm";
@@ -171,14 +171,9 @@ namespace MQManager.GUI
 		}
 		#endregion
 
-		private void mainTabs_SelectedIndexChanged(object sender, System.EventArgs e)
-		{
-		
-		}
-
 		private void OpenTab(object sender, System.EventArgs e)
 		{
-			ConnectDialog connect = new ConnectDialog();
+			ConnectMessageDialog connect = new ConnectMessageDialog();
 			connect.Visible = true;
 			connect.OnConnect += new ConnectEventHandler(OnConnect);
 
@@ -204,6 +199,11 @@ namespace MQManager.GUI
 		static void Main() 
 		{
 			Application.Run(new MQManagerForm());
+		}
+
+		private void MenuItemExit_Click(object sender, System.EventArgs e)
+		{
+			Application.Exit();
 		}
 
 	}

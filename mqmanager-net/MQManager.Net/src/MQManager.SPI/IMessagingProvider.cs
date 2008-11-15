@@ -15,7 +15,6 @@
  */
 
 using System.Collections;
-using MQManager.SPI;
 
 namespace MQManager.SPI
 {

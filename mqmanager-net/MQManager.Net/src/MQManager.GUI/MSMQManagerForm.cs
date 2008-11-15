@@ -20,7 +20,6 @@ using System.IO;
 using System.Windows.Forms;
 using Microsoft.Win32;
 using MQManager.GUI.Panels;
-using MQManager.GUI.Settings;
 using MQManager.SPI;
 using MQManager.SPI.MSMQ;
 
@@ -31,9 +30,6 @@ namespace MQManager.GUI
 	/// </summary>
 	public class MSMQManagerForm : System.Windows.Forms.Panel
 	{
-
-		private SettingsManager settings = new SettingsManager();
-
 		private System.Windows.Forms.Label queuePathLabel;
 		private System.Windows.Forms.TextBox queuePath;
 
@@ -58,8 +54,6 @@ namespace MQManager.GUI
 		public MSMQManagerForm()
 		{
 			InitializeComponent();
-			this.SettingsChanged += new SettingsManager.SettingsListener(settings.UpdateSettings);
-			this.queuePath.Text = settings.GetSetting("queuePath");
 		}
 
 		public MSMQManagerForm(string connectionString) : this()
@@ -175,6 +169,7 @@ namespace MQManager.GUI
 			this.messageHeaders.Size = new System.Drawing.Size(376, 21);
 			this.messageHeaders.TabIndex = 10;
 			this.messageHeaders.SelectedIndexChanged += new System.EventHandler(this.messageHeadersComboBox_SelectedIndexChanged);
+			this.messageHeaders.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			// 
 			// saveButton
 			// 
@@ -220,8 +215,6 @@ namespace MQManager.GUI
 		private void Submit_Click(object sender, System.EventArgs e)
 		{
 		    string conUrl = this.queuePath.Text;
-            if(SettingsChanged != null)
-				SettingsChanged("queuePath", conUrl);
 
 			string results = null;
 			try
@@ -388,9 +381,6 @@ namespace MQManager.GUI
 			}
 		
 		}
-
-
-        public event SettingsManager.SettingsListener SettingsChanged;
 	}
 
 

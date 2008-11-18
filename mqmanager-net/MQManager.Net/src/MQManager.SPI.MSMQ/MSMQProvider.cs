@@ -1,5 +1,5 @@
 /*
- * Copyright 2005 David H. DeWolf
+ * Copyright 2005-2008 David H. DeWolf and Justin Dearing
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.

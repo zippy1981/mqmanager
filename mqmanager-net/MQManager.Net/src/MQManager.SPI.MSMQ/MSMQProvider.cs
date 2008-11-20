@@ -31,7 +31,14 @@ namespace MQManager.SPI.MSMQ
 
 		public MSMQProvider(string path)
 		{
-			queue = new MessageQueue(path);
+            if (MessageQueue.Exists(path))
+            {
+                queue = new MessageQueue(path);
+            }
+            else
+            {
+                throw new MSMQProviderException("Queue not found.", path);
+            }
 		}
 
 		public IList GetMessageHeaders()

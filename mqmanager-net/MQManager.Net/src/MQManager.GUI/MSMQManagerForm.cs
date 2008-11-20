@@ -58,7 +58,7 @@ namespace MQManager.GUI
 
 		public MSMQManagerForm(string connectionString) : this()
 		{
-			queuePath.Text = connectionString;
+            queuePath.Text = connectionString;
 			Submit_Click(null, null);
 		}
 

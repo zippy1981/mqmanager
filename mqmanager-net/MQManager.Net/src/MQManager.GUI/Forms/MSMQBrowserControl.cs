@@ -29,7 +29,7 @@ namespace MQManager.GUI.Forms
 	/// <summary>
 	/// This control displays the messages in a single message queue.
 	/// </summary>
-	public class MSMQBrowserControl : System.Windows.Forms.UserControl
+	public class MSMQManagerForm : System.Windows.Forms.UserControl
 	{
 		private System.Windows.Forms.Label queuePathLabel;
 		private System.Windows.Forms.TextBox queuePath;
@@ -52,12 +52,12 @@ namespace MQManager.GUI.Forms
 		/// </summary>
 		private System.ComponentModel.Container components = null;
 
-		public MSMQBrowserControl()
+		public MSMQManagerForm()
 		{
 			InitializeComponent();
 		}
 
-		public MSMQBrowserControl(string connectionString) : this()
+		public MSMQManagerForm(string connectionString) : this()
 		{
             queuePath.Text = connectionString;
 			Submit_Click(null, null);
@@ -85,7 +85,6 @@ namespace MQManager.GUI.Forms
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Resources.ResourceManager resources = new System.Resources.ResourceManager(typeof(MSMQBrowserControl));
 			this.queuePath = new System.Windows.Forms.TextBox();
 			this.listMessagesButton = new System.Windows.Forms.Button();
 			this.queuePathLabel = new System.Windows.Forms.Label();
@@ -101,14 +100,16 @@ namespace MQManager.GUI.Forms
 			// 
 			// queuePath
 			// 
+			this.queuePath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+									| System.Windows.Forms.AnchorStyles.Right)));
 			this.queuePath.Location = new System.Drawing.Point(16, 32);
 			this.queuePath.Name = "queuePath";
 			this.queuePath.Size = new System.Drawing.Size(376, 20);
 			this.queuePath.TabIndex = 0;
-			this.queuePath.Text = "";
 			// 
 			// listMessagesButton
 			// 
+			this.listMessagesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.listMessagesButton.Location = new System.Drawing.Point(408, 32);
 			this.listMessagesButton.Name = "listMessagesButton";
 			this.listMessagesButton.Size = new System.Drawing.Size(96, 23);
@@ -120,6 +121,7 @@ namespace MQManager.GUI.Forms
 			// 
 			this.queuePathLabel.Location = new System.Drawing.Point(16, 8);
 			this.queuePathLabel.Name = "queuePathLabel";
+			this.queuePathLabel.Size = new System.Drawing.Size(100, 23);
 			this.queuePathLabel.TabIndex = 2;
 			this.queuePathLabel.Text = "Queue Path";
 			// 
@@ -127,19 +129,24 @@ namespace MQManager.GUI.Forms
 			// 
 			this.messageLabel.Location = new System.Drawing.Point(16, 104);
 			this.messageLabel.Name = "messageLabel";
+			this.messageLabel.Size = new System.Drawing.Size(100, 23);
 			this.messageLabel.TabIndex = 3;
 			this.messageLabel.Text = "Message Contents";
 			// 
 			// peekedMessage
 			// 
+			this.peekedMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+									| System.Windows.Forms.AnchorStyles.Left) 
+									| System.Windows.Forms.AnchorStyles.Right)));
 			this.peekedMessage.Location = new System.Drawing.Point(16, 128);
 			this.peekedMessage.Name = "peekedMessage";
-			this.peekedMessage.Size = new System.Drawing.Size(376, 136);
+			this.peekedMessage.Size = new System.Drawing.Size(376, 217);
 			this.peekedMessage.TabIndex = 4;
 			this.peekedMessage.Text = "";
 			// 
 			// clearButton
 			// 
+			this.clearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.clearButton.Location = new System.Drawing.Point(408, 64);
 			this.clearButton.Name = "clearButton";
 			this.clearButton.Size = new System.Drawing.Size(96, 23);
@@ -149,6 +156,7 @@ namespace MQManager.GUI.Forms
 			// 
 			// forwardButton
 			// 
+			this.forwardButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.forwardButton.Location = new System.Drawing.Point(408, 160);
 			this.forwardButton.Name = "forwardButton";
 			this.forwardButton.Size = new System.Drawing.Size(96, 23);
@@ -158,22 +166,27 @@ namespace MQManager.GUI.Forms
 			// 
 			// statusMessageLabel
 			// 
-			this.statusMessageLabel.Location = new System.Drawing.Point(16, 280);
+			this.statusMessageLabel.AutoSize = true;
+			this.statusMessageLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.statusMessageLabel.Location = new System.Drawing.Point(0, 368);
 			this.statusMessageLabel.Name = "statusMessageLabel";
-			this.statusMessageLabel.Size = new System.Drawing.Size(376, 88);
+			this.statusMessageLabel.Size = new System.Drawing.Size(0, 13);
 			this.statusMessageLabel.TabIndex = 9;
 			// 
 			// messageHeaders
 			// 
+			this.messageHeaders.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+									| System.Windows.Forms.AnchorStyles.Right)));
+			this.messageHeaders.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.messageHeaders.Location = new System.Drawing.Point(16, 64);
 			this.messageHeaders.Name = "messageHeaders";
 			this.messageHeaders.Size = new System.Drawing.Size(376, 21);
 			this.messageHeaders.TabIndex = 10;
 			this.messageHeaders.SelectedIndexChanged += new System.EventHandler(this.messageHeadersComboBox_SelectedIndexChanged);
-			this.messageHeaders.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			// 
 			// saveButton
 			// 
+			this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.saveButton.Location = new System.Drawing.Point(408, 128);
 			this.saveButton.Name = "saveButton";
 			this.saveButton.Size = new System.Drawing.Size(96, 23);
@@ -183,6 +196,7 @@ namespace MQManager.GUI.Forms
 			// 
 			// deleteButton
 			// 
+			this.deleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.deleteButton.Location = new System.Drawing.Point(408, 192);
 			this.deleteButton.Name = "deleteButton";
 			this.deleteButton.Size = new System.Drawing.Size(96, 23);
@@ -192,7 +206,6 @@ namespace MQManager.GUI.Forms
 			// 
 			// MSMQManagerForm
 			// 
-			this.ClientSize = new System.Drawing.Size(520, 381);
 			this.Controls.Add(this.deleteButton);
 			this.Controls.Add(this.saveButton);
 			this.Controls.Add(this.messageHeaders);
@@ -205,9 +218,9 @@ namespace MQManager.GUI.Forms
 			this.Controls.Add(this.listMessagesButton);
 			this.Controls.Add(this.queuePath);
 			this.Name = "MSMQManagerForm";
-			this.Text = "MQManager";
+			this.Size = new System.Drawing.Size(520, 381);
 			this.ResumeLayout(false);
-
+			this.PerformLayout();
 		}
 		#endregion
 

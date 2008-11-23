@@ -103,6 +103,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.ico" />
+    <Compile Include="Forms\HostMSMQBrowser.cs" />
+    <Compile Include="Forms\HostMSMQBrowser.Designer.cs">
+      <DependentUpon>HostMSMQBrowser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MQManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>

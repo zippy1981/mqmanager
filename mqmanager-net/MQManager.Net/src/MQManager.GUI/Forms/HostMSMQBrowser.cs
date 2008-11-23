@@ -15,22 +15,27 @@
  */
  
 using System;
+using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
- 
-namespace MQManager.GUI
+
+namespace MQManager.GUI.Forms
 {
 	/// <summary>
-	/// Contains main entry point.
+	/// Lists all the MSMQs on a single host
 	/// </summary>
-	internal static class Program
+	public partial class HostMSM.\dispatchQBrowser : UserControl
 	{
-		/// <summary>
-		/// The main entry point for the application.
-		/// </summary>
-		[STAThread]
-		private static void Main() 
+		public HostMSMQBrowser()
 		{
-			Application.Run(new Forms.MQManagerForm());
+			//
+			// The InitializeComponent() call is required for Windows Forms designer support.
+			//
+			InitializeComponent();
+			
+			//
+			// TODO: Add constructor code after the InitializeComponent() call.
+			//
 		}
 	}
 }

@@ -15,9 +15,9 @@
  */
 using System;
 using System.Windows.Forms;
-using MQManager.GUI.Panels;
+using MQManager.GUI.Forms;
 
-namespace MQManager.GUI
+namespace MQManager.GUI.Forms
 {
 	/// <summary>
 	/// Summary description for MQManagerForm.
@@ -184,24 +184,17 @@ namespace MQManager.GUI
             this.menuItemClose.Enabled = true;
 	        TabPage control = new TabPage();
 			control.Text = connectionString;
-			control.ToolTipText = "Connection to : "+connectionString;
+			control.ToolTipText = string.Format("Connection to: {0}", connectionString);
 			control.AutoScroll = true;
 			control.Visible = true;
-			MSMQManagerForm form = new MSMQManagerForm(connectionString); 
+			MSMQBrowserControl form = new MSMQBrowserControl(connectionString); 
 			control.Controls.Add(form);
+			
+			//TODO: Add a right click menu item to close the control. Ensure that it will disable the "File | Close" menu item.
             mainTabs.Controls.Add(control);		
 		}
 
 		
-		/// <summary>
-		/// The main entry point for the application.
-		/// </summary>
-		[STAThread]
-		static void Main() 
-		{
-			Application.Run(new MQManagerForm());
-		}
-
 		private void MenuItemExit_Click(object sender, System.EventArgs e)
 		{
 			Application.Exit();

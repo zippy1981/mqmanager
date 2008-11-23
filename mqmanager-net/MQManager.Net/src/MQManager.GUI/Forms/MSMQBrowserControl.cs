@@ -14,21 +14,22 @@
  * limitations under the License.
  */
 
+using Microsoft.Win32;
 using System;
 using System.Collections;
 using System.IO;
 using System.Windows.Forms;
-using Microsoft.Win32;
-using MQManager.GUI.Panels;
+
+using MQManager.GUI.Forms;
 using MQManager.SPI;
 using MQManager.SPI.MSMQ;
 
-namespace MQManager.GUI
+namespace MQManager.GUI.Forms
 {
 	/// <summary>
-	/// Summary description for Form1.
+	/// This control displays the messages in a single message queue.
 	/// </summary>
-	public class MSMQManagerForm : System.Windows.Forms.Panel
+	public class MSMQBrowserControl : System.Windows.Forms.UserControl
 	{
 		private System.Windows.Forms.Label queuePathLabel;
 		private System.Windows.Forms.TextBox queuePath;
@@ -51,12 +52,12 @@ namespace MQManager.GUI
 		/// </summary>
 		private System.ComponentModel.Container components = null;
 
-		public MSMQManagerForm()
+		public MSMQBrowserControl()
 		{
 			InitializeComponent();
 		}
 
-		public MSMQManagerForm(string connectionString) : this()
+		public MSMQBrowserControl(string connectionString) : this()
 		{
             queuePath.Text = connectionString;
 			Submit_Click(null, null);
@@ -84,7 +85,7 @@ namespace MQManager.GUI
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Resources.ResourceManager resources = new System.Resources.ResourceManager(typeof(MSMQManagerForm));
+			System.Resources.ResourceManager resources = new System.Resources.ResourceManager(typeof(MSMQBrowserControl));
 			this.queuePath = new System.Windows.Forms.TextBox();
 			this.listMessagesButton = new System.Windows.Forms.Button();
 			this.queuePathLabel = new System.Windows.Forms.Label();

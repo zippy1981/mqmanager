@@ -25,6 +25,7 @@
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
+    <SourceAnalysisOverrideSettingsFile>C:\Documents and Settings\Justin Dearing\Application Data\ICSharpCode/SharpDevelop3.0\Settings.SourceAnalysis</SourceAnalysisOverrideSettingsFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -104,29 +105,30 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="GlobalAssembly.cs" />
-    <Compile Include="MQManagerForm.cs">
+    <Compile Include="Forms\MQManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MSMQManagerForm.cs">
+    <Compile Include="Forms\MSMQBrowserControl.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Panels\ConnectDialog.cs">
+    <Compile Include="GlobalAssembly.cs" />
+    <Compile Include="Forms\ConnectDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Panels\ForwardMessageDialog.cs">
+    <Compile Include="Forms\ForwardMessageDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <EmbeddedResource Include="MQManagerForm.resx">
+    <Compile Include="Program.cs" />
+    <EmbeddedResource Include="Forms\MQManagerForm.resx">
       <DependentUpon>MQManagerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MSMQManagerForm.resx">
-      <DependentUpon>MSMQManagerForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\MSMQBrowserControl.resx">
+      <DependentUpon>MSMQBrowserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Panels\ConnectDialog.resx">
+    <EmbeddedResource Include="Forms\ConnectDialog.resx">
       <DependentUpon>ConnectDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Panels\ForwardMessageDialog.resx">
+    <EmbeddedResource Include="Forms\ForwardMessageDialog.resx">
       <DependentUpon>ForwardMessageDialog.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>

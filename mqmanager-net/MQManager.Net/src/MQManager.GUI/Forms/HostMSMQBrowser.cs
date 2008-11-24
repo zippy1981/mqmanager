@@ -24,7 +24,7 @@ namespace MQManager.GUI.Forms
 	/// <summary>
 	/// Lists all the MSMQs on a single host
 	/// </summary>
-	public partial class HostMSM.\dispatchQBrowser : UserControl
+	public partial class HostMSMQBrowser : UserControl
 	{
 		public HostMSMQBrowser()
 		{

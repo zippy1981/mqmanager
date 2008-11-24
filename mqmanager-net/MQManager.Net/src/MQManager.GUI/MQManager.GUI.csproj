@@ -103,7 +103,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.ico" />
-    <Compile Include="Forms\HostMSMQBrowser.cs" />
+    <Compile Include="Forms\HostMSMQBrowser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Forms\HostMSMQBrowser.Designer.cs">
       <DependentUpon>HostMSMQBrowser.cs</DependentUpon>
     </Compile>
@@ -111,7 +113,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\MSMQBrowserControl.cs">
-      <SubType>Component</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="GlobalAssembly.cs" />
     <Compile Include="Forms\ConnectDialog.cs">

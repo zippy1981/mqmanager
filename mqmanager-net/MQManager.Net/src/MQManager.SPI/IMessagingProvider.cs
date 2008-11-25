@@ -23,6 +23,8 @@ namespace MQManager.SPI
 	/// </summary>
 	public interface IMessagingProvider
 	{
+		
+		string Name { get; }
 
 		IList GetMessageHeaders();
 

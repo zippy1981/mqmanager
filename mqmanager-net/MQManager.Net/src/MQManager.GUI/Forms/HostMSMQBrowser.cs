@@ -17,7 +17,11 @@
 using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.Text;
 using System.Windows.Forms;
+
+using MQManager.SPI;
+using MQManager.SPI.MSMQ;
 
 namespace MQManager.GUI.Forms
 {
@@ -26,7 +30,9 @@ namespace MQManager.GUI.Forms
 	/// </summary>
 	public partial class HostMSMQBrowser : UserControl
 	{
-		public HostMSMQBrowser()
+		private IHostQueueInfo hostQueues;
+		
+		private HostMSMQBrowser()
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
@@ -36,6 +42,27 @@ namespace MQManager.GUI.Forms
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
+		}
+		
+		
+		public HostMSMQBrowser(string hostName) : this()
+		{
+			StringBuilder sb = new StringBuilder();
+			hostQueues = new HostMSMQs(hostName);
+			
+			sb.AppendLine("Private Queues:");
+			foreach (IMessagingProvider queueProvider in  hostQueues.PrivateQueues)
+			{
+				sb.AppendFormat("\t{0}", queueProvider.Name);
+				sb.AppendLine();
+			}
+			sb.AppendLine("Public Queues:");
+			foreach (IMessagingProvider queueProvider in  hostQueues.PublicQueues)
+			{
+				sb.AppendFormat("\t{0}", queueProvider.Name);
+				sb.AppendLine();
+			}
+			txtQueueList.Text = sb.ToString();
 		}
 	}
 }

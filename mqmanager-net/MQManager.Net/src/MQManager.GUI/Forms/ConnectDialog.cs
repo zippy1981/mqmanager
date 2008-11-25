@@ -157,7 +157,9 @@ namespace MQManager.GUI.Forms
 		private void connect_Click(object sender, System.EventArgs e)
 		{
 			if(OnConnect != null)
+			{
 				OnConnect(connectionString.Text);
+			}
 			this.Close();
 		}
 

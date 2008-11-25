@@ -52,7 +52,7 @@ namespace MQManager.GUI.Forms
 		/// </summary>
 		private System.ComponentModel.Container components = null;
 
-		public MSMQManagerForm()
+		private MSMQManagerForm()
 		{
 			InitializeComponent();
 		}
@@ -241,13 +241,11 @@ namespace MQManager.GUI.Forms
 					this.messageHeaders.DisplayMember = "MessageLabel";
 					this.messageHeaders.Items.Add(header);
 				}
-
 			}
 			catch(Exception ex)
 			{
 				results = ex.Message;
 			}
-
 			this.peekedMessage.Text = results;
 		}
 

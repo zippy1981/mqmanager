@@ -36,11 +36,30 @@ namespace MQManager.GUI.Forms
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.txtQueueList = new System.Windows.Forms.TextBox();
+			this.SuspendLayout();
 			// 
-			// HostMQMSBrowser
+			// txtQueueList
 			// 
+			this.txtQueueList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+									| System.Windows.Forms.AnchorStyles.Left) 
+									| System.Windows.Forms.AnchorStyles.Right)));
+			this.txtQueueList.Location = new System.Drawing.Point(217, 3);
+			this.txtQueueList.Multiline = true;
+			this.txtQueueList.Name = "txtQueueList";
+			this.txtQueueList.Size = new System.Drawing.Size(300, 375);
+			this.txtQueueList.TabIndex = 0;
+			// 
+			// HostMSMQBrowser
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.Name = "HostMQMSBrowser";
+			this.Controls.Add(this.txtQueueList);
+			this.Name = "HostMSMQBrowser";
+			this.Size = new System.Drawing.Size(520, 381);
+			this.ResumeLayout(false);
+			this.PerformLayout();
 		}
+		private System.Windows.Forms.TextBox txtQueueList;
 	}
 }

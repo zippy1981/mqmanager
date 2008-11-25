@@ -84,6 +84,7 @@
     <Reference Include="System.Drawing">
       <Name>System.Drawing</Name>
     </Reference>
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Windows.Forms">
       <Name>System.Windows.Forms</Name>
     </Reference>
@@ -126,6 +127,9 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <EmbeddedResource Include="Forms\HostMSMQBrowser.resx">
+      <DependentUpon>HostMSMQBrowser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MQManagerForm.resx">
       <DependentUpon>MQManagerForm.cs</DependentUpon>
     </EmbeddedResource>

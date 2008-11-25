@@ -98,6 +98,7 @@
     <Compile Include="DefaultMessageContents.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="IHostQueueInfo.cs" />
     <Compile Include="IMessageContents.cs">
       <SubType>Code</SubType>
     </Compile>

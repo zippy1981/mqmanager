@@ -97,6 +97,7 @@
     <Compile Include="..\MQManager.GUI\GlobalAssembly.cs">
       <Link>GlobalAssembly.cs</Link>
     </Compile>
+    <Compile Include="HostMSMQs.cs" />
     <Compile Include="MessageContents.cs">
       <SubType>Code</SubType>
     </Compile>

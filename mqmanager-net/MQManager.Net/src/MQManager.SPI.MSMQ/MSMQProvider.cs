@@ -27,6 +27,10 @@ namespace MQManager.SPI.MSMQ
 
 		private MessageQueue queue;
 		private MSMQMessagingTransaction currentTransaction;
+		
+		public string Name {
+			get { return queue.Path; }
+		}
 
 
 		public MSMQProvider(string path)
@@ -39,6 +43,11 @@ namespace MQManager.SPI.MSMQ
             {
                 throw new MSMQProviderException("Queue not found.", path);
             }
+		}
+		
+		public MSMQProvider(MessageQueue queue)
+		{
+			this.queue = queue;
 		}
 
 		public IList GetMessageHeaders()

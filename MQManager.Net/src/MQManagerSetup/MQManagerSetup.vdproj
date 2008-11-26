@@ -15,25 +15,25 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_7ED09105BADEEFA909F3BFE12E0EA41E"
+        "OwnerKey" = "8:_F302CEAC9256097B22FDE977DB027A8A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7ED09105BADEEFA909F3BFE12E0EA41E"
+        "OwnerKey" = "8:_7EF2A7D7A5C947D59DD571705F63154A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_7EF2A7D7A5C947D59DD571705F63154A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_A5E502BF9F904E7FDCD24F115C49B73A"
-        "OwnerKey" = "8:_D5C3228B7D323826B8E3EFC5D75273C1"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_A5E502BF9F904E7FDCD24F115C49B73A"
-        "OwnerKey" = "8:_7EF2A7D7A5C947D59DD571705F63154A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_D5C3228B7D323826B8E3EFC5D75273C1"
+        "MsmKey" = "8:_F302CEAC9256097B22FDE977DB027A8A"
         "OwnerKey" = "8:_7EF2A7D7A5C947D59DD571705F63154A"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -46,13 +46,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_D5C3228B7D323826B8E3EFC5D75273C1"
+        "OwnerKey" = "8:_F302CEAC9256097B22FDE977DB027A8A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A5E502BF9F904E7FDCD24F115C49B73A"
+        "OwnerKey" = "8:_7ED09105BADEEFA909F3BFE12E0EA41E"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -141,14 +141,14 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A5E502BF9F904E7FDCD24F115C49B73A"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_7ED09105BADEEFA909F3BFE12E0EA41E"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MQManager.SPI, Version=0.2.3243.42377, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:MQManager.SPI, Version=0.3.3249.35948, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_A5E502BF9F904E7FDCD24F115C49B73A"
+                    "_7ED09105BADEEFA909F3BFE12E0EA41E"
                     {
                     "Name" = "8:MQManager.SPI.dll"
                     "Attributes" = "3:512"
@@ -172,14 +172,14 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D5C3228B7D323826B8E3EFC5D75273C1"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F302CEAC9256097B22FDE977DB027A8A"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MQManager.SPI.MSMQ, Version=0.2.3243.42490, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:MQManager.SPI.MSMQ, Version=0.3.3249.35948, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_D5C3228B7D323826B8E3EFC5D75273C1"
+                    "_F302CEAC9256097B22FDE977DB027A8A"
                     {
                     "Name" = "8:MQManager.SPI.MSMQ.dll"
                     "Attributes" = "3:512"
@@ -258,14 +258,14 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MQManager.NET"
-        "ProductCode" = "8:{240B9C8C-062E-4248-8766-F777CAA8E63D}"
-        "PackageCode" = "8:{455C97B9-3D46-4324-822B-2B7B8D26BA1B}"
+        "ProductCode" = "8:{0640B3B0-2251-4F9B-A690-B52EDE69FD9F}"
+        "PackageCode" = "8:{6DD983CD-743D-4A57-9951-7A5C116A012F}"
         "UpgradeCode" = "8:{B67F6E87-DDA7-4607-8636-13BB041194A2}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:0.3.0"
+        "ProductVersion" = "8:0.4.0"
         "Manufacturer" = "8:Zippysoft"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://opensource.digitalfocus.com/mqmanager"
@@ -793,7 +793,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_7EF2A7D7A5C947D59DD571705F63154A"
             {
-            "SourcePath" = "8:..\\MQManager.GUI\\obj\\Debug\\MQManager.GUI.exe"
+            "SourcePath" = "8:..\\MQManager.GUI\\obj\\Release\\MQManager.GUI.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_DDBDBA1D3E324B4881A166DFD3037E3C"

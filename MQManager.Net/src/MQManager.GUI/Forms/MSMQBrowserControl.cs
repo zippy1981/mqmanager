@@ -14,13 +14,11 @@
  * limitations under the License.
  */
 
-using Microsoft.Win32;
 using System;
 using System.Collections;
 using System.IO;
 using System.Windows.Forms;
 
-using MQManager.GUI.Forms;
 using MQManager.SPI;
 using MQManager.SPI.MSMQ;
 
@@ -29,7 +27,7 @@ namespace MQManager.GUI.Forms
 	/// <summary>
 	/// This control displays the messages in a single message queue.
 	/// </summary>
-	public class MSMQManagerForm : System.Windows.Forms.UserControl
+	public class MSMQBrowserControl : System.Windows.Forms.UserControl
 	{
 		private System.Windows.Forms.Label queuePathLabel;
 		private System.Windows.Forms.TextBox queuePath;
@@ -52,15 +50,29 @@ namespace MQManager.GUI.Forms
 		/// </summary>
 		private System.ComponentModel.Container components = null;
 
-		private MSMQManagerForm()
+        /// <summary>
+        /// The fully qualified name of the MSMQ.
+        /// </summary>
+	    public string QueueName
+	    {
+            get { return _messagingProvider.Name; }
+	    }
+
+
+		private MSMQBrowserControl()
 		{
 			InitializeComponent();
 		}
 
-		public MSMQManagerForm(string connectionString) : this()
+		public MSMQBrowserControl(string connectionString) : this()
 		{
-            queuePath.Text = connectionString;
-			Submit_Click(null, null);
+		    queuePath.Text = connectionString;
+            Submit_Click(null, null);
+            // So we get the fully qualified queue path.
+            if (_messagingProvider != null)
+		    {
+		        queuePath.Text = _messagingProvider.Name;
+		    }
 		}
 
 		/// <summary>
@@ -85,146 +97,147 @@ namespace MQManager.GUI.Forms
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.queuePath = new System.Windows.Forms.TextBox();
-			this.listMessagesButton = new System.Windows.Forms.Button();
-			this.queuePathLabel = new System.Windows.Forms.Label();
-			this.messageLabel = new System.Windows.Forms.Label();
-			this.peekedMessage = new System.Windows.Forms.RichTextBox();
-			this.clearButton = new System.Windows.Forms.Button();
-			this.forwardButton = new System.Windows.Forms.Button();
-			this.statusMessageLabel = new System.Windows.Forms.Label();
-			this.messageHeaders = new System.Windows.Forms.ComboBox();
-			this.saveButton = new System.Windows.Forms.Button();
-			this.deleteButton = new System.Windows.Forms.Button();
-			this.SuspendLayout();
-			// 
-			// queuePath
-			// 
-			this.queuePath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-									| System.Windows.Forms.AnchorStyles.Right)));
-			this.queuePath.Location = new System.Drawing.Point(16, 32);
-			this.queuePath.Name = "queuePath";
-			this.queuePath.Size = new System.Drawing.Size(376, 20);
-			this.queuePath.TabIndex = 0;
-			// 
-			// listMessagesButton
-			// 
-			this.listMessagesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.listMessagesButton.Location = new System.Drawing.Point(408, 32);
-			this.listMessagesButton.Name = "listMessagesButton";
-			this.listMessagesButton.Size = new System.Drawing.Size(96, 23);
-			this.listMessagesButton.TabIndex = 0;
-			this.listMessagesButton.Text = "List Messages";
-			this.listMessagesButton.Click += new System.EventHandler(this.Submit_Click);
-			// 
-			// queuePathLabel
-			// 
-			this.queuePathLabel.Location = new System.Drawing.Point(16, 8);
-			this.queuePathLabel.Name = "queuePathLabel";
-			this.queuePathLabel.Size = new System.Drawing.Size(100, 23);
-			this.queuePathLabel.TabIndex = 2;
-			this.queuePathLabel.Text = "Queue Path";
-			// 
-			// messageLabel
-			// 
-			this.messageLabel.Location = new System.Drawing.Point(16, 104);
-			this.messageLabel.Name = "messageLabel";
-			this.messageLabel.Size = new System.Drawing.Size(100, 23);
-			this.messageLabel.TabIndex = 3;
-			this.messageLabel.Text = "Message Contents";
-			// 
-			// peekedMessage
-			// 
-			this.peekedMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-									| System.Windows.Forms.AnchorStyles.Left) 
-									| System.Windows.Forms.AnchorStyles.Right)));
-			this.peekedMessage.Location = new System.Drawing.Point(16, 128);
-			this.peekedMessage.Name = "peekedMessage";
-			this.peekedMessage.Size = new System.Drawing.Size(376, 217);
-			this.peekedMessage.TabIndex = 4;
-			this.peekedMessage.Text = "";
-			// 
-			// clearButton
-			// 
-			this.clearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.clearButton.Location = new System.Drawing.Point(408, 64);
-			this.clearButton.Name = "clearButton";
-			this.clearButton.Size = new System.Drawing.Size(96, 23);
-			this.clearButton.TabIndex = 5;
-			this.clearButton.Text = "Clear Messages";
-			this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
-			// 
-			// forwardButton
-			// 
-			this.forwardButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.forwardButton.Location = new System.Drawing.Point(408, 160);
-			this.forwardButton.Name = "forwardButton";
-			this.forwardButton.Size = new System.Drawing.Size(96, 23);
-			this.forwardButton.TabIndex = 8;
-			this.forwardButton.Text = "Forward";
-			this.forwardButton.Click += new System.EventHandler(this.showForwardButton_Click);
-			// 
-			// statusMessageLabel
-			// 
-			this.statusMessageLabel.AutoSize = true;
-			this.statusMessageLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.statusMessageLabel.Location = new System.Drawing.Point(0, 368);
-			this.statusMessageLabel.Name = "statusMessageLabel";
-			this.statusMessageLabel.Size = new System.Drawing.Size(0, 13);
-			this.statusMessageLabel.TabIndex = 9;
-			// 
-			// messageHeaders
-			// 
-			this.messageHeaders.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-									| System.Windows.Forms.AnchorStyles.Right)));
-			this.messageHeaders.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.messageHeaders.Location = new System.Drawing.Point(16, 64);
-			this.messageHeaders.Name = "messageHeaders";
-			this.messageHeaders.Size = new System.Drawing.Size(376, 21);
-			this.messageHeaders.TabIndex = 10;
-			this.messageHeaders.SelectedIndexChanged += new System.EventHandler(this.messageHeadersComboBox_SelectedIndexChanged);
-			// 
-			// saveButton
-			// 
-			this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.saveButton.Location = new System.Drawing.Point(408, 128);
-			this.saveButton.Name = "saveButton";
-			this.saveButton.Size = new System.Drawing.Size(96, 23);
-			this.saveButton.TabIndex = 11;
-			this.saveButton.Text = "Save";
-			this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
-			// 
-			// deleteButton
-			// 
-			this.deleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.deleteButton.Location = new System.Drawing.Point(408, 192);
-			this.deleteButton.Name = "deleteButton";
-			this.deleteButton.Size = new System.Drawing.Size(96, 23);
-			this.deleteButton.TabIndex = 12;
-			this.deleteButton.Text = "Delete";
-			this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
-			// 
-			// MSMQManagerForm
-			// 
-			this.Controls.Add(this.deleteButton);
-			this.Controls.Add(this.saveButton);
-			this.Controls.Add(this.messageHeaders);
-			this.Controls.Add(this.statusMessageLabel);
-			this.Controls.Add(this.forwardButton);
-			this.Controls.Add(this.clearButton);
-			this.Controls.Add(this.peekedMessage);
-			this.Controls.Add(this.messageLabel);
-			this.Controls.Add(this.queuePathLabel);
-			this.Controls.Add(this.listMessagesButton);
-			this.Controls.Add(this.queuePath);
-			this.Name = "MSMQManagerForm";
-			this.Size = new System.Drawing.Size(520, 381);
-			this.ResumeLayout(false);
-			this.PerformLayout();
+            this.queuePath = new System.Windows.Forms.TextBox();
+            this.listMessagesButton = new System.Windows.Forms.Button();
+            this.queuePathLabel = new System.Windows.Forms.Label();
+            this.messageLabel = new System.Windows.Forms.Label();
+            this.peekedMessage = new System.Windows.Forms.RichTextBox();
+            this.clearButton = new System.Windows.Forms.Button();
+            this.forwardButton = new System.Windows.Forms.Button();
+            this.statusMessageLabel = new System.Windows.Forms.Label();
+            this.messageHeaders = new System.Windows.Forms.ComboBox();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // queuePath
+            // 
+            this.queuePath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.queuePath.Location = new System.Drawing.Point(16, 32);
+            this.queuePath.Name = "queuePath";
+            this.queuePath.Size = new System.Drawing.Size(376, 22);
+            this.queuePath.TabIndex = 0;
+            // 
+            // listMessagesButton
+            // 
+            this.listMessagesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.listMessagesButton.Location = new System.Drawing.Point(408, 32);
+            this.listMessagesButton.Name = "listMessagesButton";
+            this.listMessagesButton.Size = new System.Drawing.Size(96, 23);
+            this.listMessagesButton.TabIndex = 0;
+            this.listMessagesButton.Text = "List Messages";
+            this.listMessagesButton.Click += new System.EventHandler(this.Submit_Click);
+            // 
+            // queuePathLabel
+            // 
+            this.queuePathLabel.Location = new System.Drawing.Point(16, 8);
+            this.queuePathLabel.Name = "queuePathLabel";
+            this.queuePathLabel.Size = new System.Drawing.Size(100, 23);
+            this.queuePathLabel.TabIndex = 2;
+            this.queuePathLabel.Text = "Queue Path";
+            // 
+            // messageLabel
+            // 
+            this.messageLabel.Location = new System.Drawing.Point(16, 104);
+            this.messageLabel.Name = "messageLabel";
+            this.messageLabel.Size = new System.Drawing.Size(142, 23);
+            this.messageLabel.TabIndex = 3;
+            this.messageLabel.Text = "Message Contents";
+            // 
+            // peekedMessage
+            // 
+            this.peekedMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.peekedMessage.Location = new System.Drawing.Point(16, 128);
+            this.peekedMessage.Name = "peekedMessage";
+            this.peekedMessage.Size = new System.Drawing.Size(376, 217);
+            this.peekedMessage.TabIndex = 4;
+            this.peekedMessage.Text = "";
+            // 
+            // clearButton
+            // 
+            this.clearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.clearButton.Location = new System.Drawing.Point(408, 64);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(96, 23);
+            this.clearButton.TabIndex = 5;
+            this.clearButton.Text = "Clear Messages";
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            // 
+            // forwardButton
+            // 
+            this.forwardButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.forwardButton.Location = new System.Drawing.Point(408, 160);
+            this.forwardButton.Name = "forwardButton";
+            this.forwardButton.Size = new System.Drawing.Size(96, 23);
+            this.forwardButton.TabIndex = 8;
+            this.forwardButton.Text = "Forward";
+            this.forwardButton.Click += new System.EventHandler(this.showForwardButton_Click);
+            // 
+            // statusMessageLabel
+            // 
+            this.statusMessageLabel.AutoSize = true;
+            this.statusMessageLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.statusMessageLabel.Location = new System.Drawing.Point(0, 364);
+            this.statusMessageLabel.Name = "statusMessageLabel";
+            this.statusMessageLabel.Size = new System.Drawing.Size(0, 17);
+            this.statusMessageLabel.TabIndex = 9;
+            // 
+            // messageHeaders
+            // 
+            this.messageHeaders.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.messageHeaders.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.messageHeaders.Location = new System.Drawing.Point(16, 64);
+            this.messageHeaders.Name = "messageHeaders";
+            this.messageHeaders.Size = new System.Drawing.Size(376, 24);
+            this.messageHeaders.TabIndex = 10;
+            this.messageHeaders.SelectedIndexChanged += new System.EventHandler(this.messageHeadersComboBox_SelectedIndexChanged);
+            // 
+            // saveButton
+            // 
+            this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveButton.Location = new System.Drawing.Point(408, 128);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(96, 23);
+            this.saveButton.TabIndex = 11;
+            this.saveButton.Text = "Save";
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
+            // deleteButton
+            // 
+            this.deleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.deleteButton.Location = new System.Drawing.Point(408, 192);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(96, 23);
+            this.deleteButton.TabIndex = 12;
+            this.deleteButton.Text = "Delete";
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
+            // MSMQBrowserControl
+            // 
+            this.Controls.Add(this.deleteButton);
+            this.Controls.Add(this.saveButton);
+            this.Controls.Add(this.messageHeaders);
+            this.Controls.Add(this.statusMessageLabel);
+            this.Controls.Add(this.forwardButton);
+            this.Controls.Add(this.clearButton);
+            this.Controls.Add(this.peekedMessage);
+            this.Controls.Add(this.messageLabel);
+            this.Controls.Add(this.queuePathLabel);
+            this.Controls.Add(this.listMessagesButton);
+            this.Controls.Add(this.queuePath);
+            this.Name = "MSMQBrowserControl";
+            this.Size = new System.Drawing.Size(520, 381);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
 		}
 		#endregion
 
-		private IMessagingProvider messagingProvider;
+		private IMessagingProvider _messagingProvider;
 
 		private void Submit_Click(object sender, System.EventArgs e)
 		{
@@ -234,8 +247,8 @@ namespace MQManager.GUI.Forms
 			try
 			{
 				clearButton_Click(sender, e);
-				messagingProvider = new MSMQProvider(conUrl);
-				IList messages = messagingProvider.GetMessageHeaders();
+				_messagingProvider = new MSMQProvider(conUrl);
+				IList messages = _messagingProvider.GetMessageHeaders();
 				foreach(IMessageHeader header in messages)
 				{
 					this.messageHeaders.DisplayMember = "MessageLabel";
@@ -271,13 +284,13 @@ namespace MQManager.GUI.Forms
 		{
 			try 
 			{
-                IMessagingTransaction transaction = messagingProvider.BeginTransaction();
+                IMessagingTransaction transaction = _messagingProvider.BeginTransaction();
 				IMessageContents msg = null;
 
 				if(copy)
-					msg = messagingProvider.PreviewMessage(CurrentMessageHeader());
+					msg = _messagingProvider.PreviewMessage(CurrentMessageHeader());
 				else
-					msg = messagingProvider.GetMessage(CurrentMessageHeader());
+					msg = _messagingProvider.GetMessage(CurrentMessageHeader());
 
 				DefaultMessageContents contents = new DefaultMessageContents(msg);
 				contents.MessageLabel = label == null ? "[FWD] " + msg.MessageLabel : label;
@@ -287,7 +300,7 @@ namespace MQManager.GUI.Forms
 				forwardProvider.ShareTransaction(transaction);
 
 				forwardProvider.Send(contents);
-				messagingProvider.CommitTransaction();
+				_messagingProvider.CommitTransaction();
 				clearButton_Click(null, null);
 			}
 			catch(Exception ex)
@@ -315,7 +328,7 @@ namespace MQManager.GUI.Forms
 			}
 			else
 			{
-				IMessageContents content = messagingProvider.PreviewMessage(header);
+				IMessageContents content = _messagingProvider.PreviewMessage(header);
 				peekedMessage.Text = content.MessageBody;
 				this.statusMessageLabel.Text = "Loaded Message: " + content.MessageLabel;
 			}
@@ -340,9 +353,9 @@ namespace MQManager.GUI.Forms
 			dialog.FilterIndex = 1;
 			dialog.RestoreDirectory = true;
 
-			Stream output = null;
 			if(dialog.ShowDialog(this) == DialogResult.OK)
 			{
+                Stream output;
 				if((output = dialog.OpenFile()) != null)
 				{
 				    StreamWriter put = new StreamWriter(output);
@@ -376,9 +389,9 @@ namespace MQManager.GUI.Forms
 				IMessageHeader header = CurrentMessageHeader();
 				try
 				{
-					messagingProvider.BeginTransaction();
-				    messagingProvider.GetMessage(header);
-					messagingProvider.CommitTransaction();
+					_messagingProvider.BeginTransaction();
+				    _messagingProvider.GetMessage(header);
+					_messagingProvider.CommitTransaction();
          			this.Submit_Click(null, null);
 					statusMessageLabel.Text = "'"+header.MessageLabel+"'" + " deleted.";
 				}

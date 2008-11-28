@@ -97,7 +97,7 @@
     <Compile Include="..\MQManager.GUI\GlobalAssembly.cs">
       <Link>GlobalAssembly.cs</Link>
     </Compile>
-    <Compile Include="HostMSMQs.cs" />
+    <Compile Include="MSMQHost.cs" />
     <Compile Include="MessageContents.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -108,6 +108,9 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

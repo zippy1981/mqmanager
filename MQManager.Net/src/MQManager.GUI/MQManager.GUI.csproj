@@ -91,6 +91,10 @@
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
+    <ProjectReference Include="..\Aga.Controls\Aga.Controls.csproj">
+      <Project>{E73BB233-D88B-44A7-A98F-D71EE158381D}</Project>
+      <Name>Aga.Controls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MQManager.SPI.MSMQ\MQManager.SPI.MSMQ.csproj">
       <Name>MQManager.SPI.MSMQ</Name>
       <Project>{800FDFA4-E412-41A2-8D3A-34143F330183}</Project>
@@ -116,6 +120,7 @@
     <Compile Include="Forms\MSMQBrowserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Forms\MessagingProviderNode.cs" />
     <Compile Include="GlobalAssembly.cs" />
     <Compile Include="Forms\ConnectDialog.cs">
       <SubType>Form</SubType>
@@ -142,6 +147,9 @@
     <EmbeddedResource Include="Forms\ForwardMessageDialog.resx">
       <DependentUpon>ForwardMessageDialog.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

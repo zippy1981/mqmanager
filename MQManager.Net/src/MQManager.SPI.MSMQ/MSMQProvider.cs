@@ -28,28 +28,30 @@ namespace MQManager.SPI.MSMQ
 		private MessageQueue queue;
 		private MSMQMessagingTransaction currentTransaction;
 		
+        /// <summary>
+        /// The fully qualified name of the queue.
+        /// </summary>
+        /// <remarks>
+        /// Encapsulated <see cref="MessageQueue.FormatName"/> as opposed to <see cref="MessageQueue.Path"/> so that
+        /// the calling class can construct a list of queues to ensure uniqueness.
+        /// </remarks>
 		public string Name {
-			get { return queue.Path; }
+            get { return queue.Path; }
 		}
 
-
-		public MSMQProvider(string path)
+        public MSMQProvider(string path)
 		{
-            if (MessageQueue.Exists(path))
-            {
-                queue = new MessageQueue(path);
-            }
-            else
-            {
-                throw new MSMQProviderException("Queue not found.", path);
-            }
-		}
+            queue = new MessageQueue(path);
+        }
 		
 		public MSMQProvider(MessageQueue queue)
 		{
 			this.queue = queue;
 		}
 
+        /// <summary>
+        /// Returns all the message headers as an IList.
+        /// </summary>
 		public IList GetMessageHeaders()
 		{
 			IList headers = new ArrayList();

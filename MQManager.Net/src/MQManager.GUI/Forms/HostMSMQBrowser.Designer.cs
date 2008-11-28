@@ -36,30 +36,48 @@ namespace MQManager.GUI.Forms
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.txtQueueList = new System.Windows.Forms.TextBox();
-			this.SuspendLayout();
-			// 
-			// txtQueueList
-			// 
-			this.txtQueueList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-									| System.Windows.Forms.AnchorStyles.Left) 
-									| System.Windows.Forms.AnchorStyles.Right)));
-			this.txtQueueList.Location = new System.Drawing.Point(217, 3);
-			this.txtQueueList.Multiline = true;
-			this.txtQueueList.Name = "txtQueueList";
-			this.txtQueueList.Size = new System.Drawing.Size(300, 375);
-			this.txtQueueList.TabIndex = 0;
-			// 
-			// HostMSMQBrowser
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.Controls.Add(this.txtQueueList);
-			this.Name = "HostMSMQBrowser";
-			this.Size = new System.Drawing.Size(520, 381);
-			this.ResumeLayout(false);
-			this.PerformLayout();
-		}
-		private System.Windows.Forms.TextBox txtQueueList;
+            this.treeViewAdvHostQueues = new Aga.Controls.Tree.TreeViewAdv();
+            this._nodeTextBox = new Aga.Controls.Tree.NodeControls.NodeTextBox();
+            this.SuspendLayout();
+            // 
+            // treeViewAdvHostQueues
+            // 
+            this.treeViewAdvHostQueues.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.treeViewAdvHostQueues.BackColor = System.Drawing.SystemColors.Window;
+            this.treeViewAdvHostQueues.DefaultToolTipProvider = null;
+            this.treeViewAdvHostQueues.DragDropMarkColor = System.Drawing.Color.Black;
+            this.treeViewAdvHostQueues.LineColor = System.Drawing.SystemColors.ControlDark;
+            this.treeViewAdvHostQueues.Location = new System.Drawing.Point(3, 4);
+            this.treeViewAdvHostQueues.Model = null;
+            this.treeViewAdvHostQueues.Name = "treeViewAdvHostQueues";
+            this.treeViewAdvHostQueues.NodeControls.Add(this._nodeTextBox);
+            this.treeViewAdvHostQueues.SelectedNode = null;
+            this.treeViewAdvHostQueues.Size = new System.Drawing.Size(687, 461);
+            this.treeViewAdvHostQueues.TabIndex = 1;
+            this.treeViewAdvHostQueues.Text = "treeViewAdvHostQueues";
+            this.treeViewAdvHostQueues.NodeMouseDoubleClick += new System.EventHandler<Aga.Controls.Tree.TreeNodeAdvMouseEventArgs>(this.treeViewAdvHostQueues_NodeMouseDoubleClick);
+            // 
+            // _nodeTextBox
+            // 
+            this._nodeTextBox.DataPropertyName = "Text";
+            this._nodeTextBox.IncrementalSearchEnabled = true;
+            this._nodeTextBox.LeftMargin = 3;
+            this._nodeTextBox.ParentColumn = null;
+            // 
+            // HostMSMQBrowser
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.treeViewAdvHostQueues);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "HostMSMQBrowser";
+            this.Size = new System.Drawing.Size(693, 469);
+            this.ResumeLayout(false);
+
+        }
+        private Aga.Controls.Tree.TreeViewAdv treeViewAdvHostQueues;
+        private Aga.Controls.Tree.NodeControls.NodeTextBox _nodeTextBox;
 	}
 }

@@ -20,10 +20,12 @@ using System.Collections.Generic;
 namespace MQManager.SPI
 {
 	/// <summary>
-	/// Interface for classes that list queue information.
+	/// Interface for classes that represent a host's collections of queues.
 	/// </summary>
-	public interface IHostQueueInfo
+	public interface IQueueHostInfo
 	{
+		// TODO: Refactor this to contain a collection of queue types. The private/pubic thing is MSMQ specific.
+		
 		/// <summary>
 		/// The host's private queues.
 		/// </summary>

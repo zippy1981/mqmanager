@@ -20,7 +20,7 @@ namespace MQManager.GUI.Forms
 {
 
 	/// <summary>
-	/// Summary description for ForwardMessageDialog.
+	/// Dialog for connecting to a queue.
 	/// </summary>
 	public class ConnectMessageDialog : System.Windows.Forms.Form
 	{

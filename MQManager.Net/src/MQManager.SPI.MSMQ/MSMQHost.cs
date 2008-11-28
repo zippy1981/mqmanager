@@ -14,37 +14,46 @@
  * limitations under the License.
  */
 
-using System;
 using System.Collections.Generic;
 using System.Messaging;
 
 namespace MQManager.SPI.MSMQ
 {
 	/// <summary>
-	/// Description of HostMSMQs.
+	/// A class that represents a host's MSMQ collection.
 	/// </summary>
-	public class HostMSMQs : IHostQueueInfo
+	public class HostMSMQs : IQueueHostInfo
 	{
-		List<IMessagingProvider> privateQueues = new List<IMessagingProvider>();
-		List<IMessagingProvider> IHostQueueInfo.PrivateQueues {
+	    readonly List<IMessagingProvider> _privateQueues = new List<IMessagingProvider>();
+        /// <summary>
+        /// The hosts private message queues.
+        /// </summary>
+		List<IMessagingProvider> IQueueHostInfo.PrivateQueues {
 			get {
-				return privateQueues;
+				return _privateQueues;
+			}
+		}
+
+	    readonly List<IMessagingProvider> _publicQueues = new List<IMessagingProvider>();
+        /// <summary>
+        /// The hosts public message queues.
+        /// </summary>
+		List<IMessagingProvider> IQueueHostInfo.PublicQueues {
+			get {
+				return _publicQueues;
 			}
 		}
 		
-		List<IMessagingProvider> publicQueues = new List<IMessagingProvider>();
-		List<IMessagingProvider> IHostQueueInfo.PublicQueues {
-			get {
-				return publicQueues;
-			}
-		}
-		
+        /// <summary>
+        /// Creates a <see cref="HostMSMQs"/> object and populates it with the hosts MSMQs.
+        /// </summary>
+        /// <param name="hostName">The host </param>
 		public HostMSMQs(string hostName)
 		{
 			try {
 				foreach (MessageQueue queue in MessageQueue.GetPrivateQueuesByMachine(hostName))
 				{
-					privateQueues.Add(new MSMQProvider(queue));
+					_privateQueues.Add(new MSMQProvider(queue));
 				}
 			}
 			catch (MessageQueueException ex)
@@ -54,7 +63,7 @@ namespace MQManager.SPI.MSMQ
 			try {
 				foreach (MessageQueue queue in MessageQueue.GetPublicQueuesByMachine(hostName))
 				{
-					publicQueues.Add(new MSMQProvider(queue));
+					_publicQueues.Add(new MSMQProvider(queue));
 				}
 			}
 			catch (MessageQueueException ex)

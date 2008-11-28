@@ -207,6 +207,7 @@ namespace MQManager.GUI.Forms
 
         private void closeTabToolStripMenuItem_Click(object sender, EventArgs e)
 	    {
+        	
             // index to remove
             int toRemove = -1;
             // go through all tab pages
@@ -273,6 +274,8 @@ namespace MQManager.GUI.Forms
             MessagingProviderNode node = e.Node.Tag as MessagingProviderNode;
             if (node == null) { return; }
 	        string host = node.Text;
+	        
+	        // TODO: Add code to remove items from the dictionary, or don't use it.
 	        if (queueBrowsers.ContainsKey(host))
 	        {
 	            mainTabs.SelectTab(host);

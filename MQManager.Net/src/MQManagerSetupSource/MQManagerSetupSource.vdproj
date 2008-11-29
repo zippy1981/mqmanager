@@ -21,6 +21,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_B0CE2950CAFB4E3A867A4CD47D0F4905"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_E773CB1D5BA145BC807D9D2D133C3C5C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -123,6 +129,26 @@
             "TargetName" = "8:MQManagerSetupSource.vdproj"
             "Tag" = "8:"
             "Folder" = "8:_8A4B81CF9FCB4A0E81A1C2355BC8363C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B0CE2950CAFB4E3A867A4CD47D0F4905"
+            {
+            "SourcePath" = "8:..\\..\\DOCs\\MQmanager Development Roadmap.doc"
+            "TargetName" = "8:MQmanager Development Roadmap.doc"
+            "Tag" = "8:"
+            "Folder" = "8:_966CCD3AA07447528671EAAAC52E5B1E"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -279,6 +305,17 @@
                                 {
                                 }
                             }
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_9FA817F15B754A318F4D3435690FCA3E"
+                            {
+                            "Name" = "8:Aga.Controls"
+                            "AlwaysCreate" = "11:FALSE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_C3121DEC9B004B779779BDECE4C4BF92"
+                                "Folders"
+                                {
+                                }
+                            }
                             "{9EF0B969-E518-4E46-987F-47570745A589}:_BF18DFAF65084E2E9E428829424869E3"
                             {
                             "Name" = "8:MQManager.SPI"
@@ -301,6 +338,17 @@
                                 {
                                 }
                             }
+                        }
+                    }
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_966CCD3AA07447528671EAAAC52E5B1E"
+                    {
+                    "Name" = "8:DOCs"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_55EBF8E894EA4C469DB852769F48BC77"
+                        "Folders"
+                        {
                         }
                     }
                 }
@@ -967,7 +1015,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_573C19F96E8C404F99DC7BF575DED4B9"
             {
-            "SourcePath" = "8:"
+            "SourcePath" = "8:..\\MQManager.SPI\\bin\\Debug\\MQManager.SPI.xml"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_BF18DFAF65084E2E9E428829424869E3"
@@ -1100,6 +1148,34 @@
             "OutputConfiguration" = "8:"
             "OutputGroupCanonicalName" = "8:ContentFiles"
             "OutputProjectGuid" = "8:{800FDFA4-E412-41A2-8D3A-34143F330183}"
+            "ShowKeyOutput" = "11:TRUE"
+                "ExcludeFilters"
+                {
+                }
+            }
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_DE66AD091F8C410F8E71AAEEF2949FFE"
+            {
+            "SourcePath" = "8:"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_9FA817F15B754A318F4D3435690FCA3E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            "ProjectOutputGroupRegister" = "3:1"
+            "OutputConfiguration" = "8:"
+            "OutputGroupCanonicalName" = "8:SourceFiles"
+            "OutputProjectGuid" = "8:{E73BB233-D88B-44A7-A98F-D71EE158381D}"
             "ShowKeyOutput" = "11:TRUE"
                 "ExcludeFilters"
                 {

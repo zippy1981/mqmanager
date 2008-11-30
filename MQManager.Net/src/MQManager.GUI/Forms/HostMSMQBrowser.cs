@@ -50,7 +50,7 @@ namespace MQManager.GUI.Forms
 		public HostMSMQBrowser(string hostName) : this()
 		{
 			StringBuilder sb = new StringBuilder();
-			_hostQueues = new HostMSMQs(hostName);
+			_hostQueues = new MSMQHost(hostName);
 
             _hostTreeModel = new TreeModel();
             treeViewAdvHostQueues.Model = _hostTreeModel;

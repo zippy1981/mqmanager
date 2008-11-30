@@ -19,13 +19,19 @@ using System.Collections;
 namespace MQManager.SPI
 {
 	/// <summary>
-	/// Summary description for IMessageProvider.
+	/// A provider for a collection of messages of some type. E.g. a MSMQ.
 	/// </summary>
 	public interface IMessagingProvider
 	{
-		
+		/// <summary>
+		/// The name of the instance of the messaging provider.
+		/// </summary>
 		string Name { get; }
-
+		
+		/// <summary>
+		/// Gets all the messages for the provider.
+		/// </summary>
+		/// <returns>a list of messages for the provider.</returns>
 		IList GetMessageHeaders();
 
 		IMessageContents PreviewMessage(IMessageHeader header);

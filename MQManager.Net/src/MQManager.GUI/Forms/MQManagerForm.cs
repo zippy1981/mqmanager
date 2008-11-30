@@ -18,6 +18,8 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using Aga.Controls.Tree;
 
+using MQManager.SPI;
+
 namespace MQManager.GUI.Forms
 {
 	/// <summary>
@@ -37,8 +39,6 @@ namespace MQManager.GUI.Forms
         private System.ComponentModel.IContainer components;
         private ContextMenuStrip contextMenuTab;
         private ToolStripMenuItem closeTabToolStripMenuItem;
-
-        private Dictionary<string, TabPage> queueBrowsers = new Dictionary<string, TabPage>();
 
 		public MQManagerForm()
 		{
@@ -207,47 +207,50 @@ namespace MQManager.GUI.Forms
 
         private void closeTabToolStripMenuItem_Click(object sender, EventArgs e)
 	    {
-        	
-            // index to remove
-            int toRemove = -1;
-            // go through all tab pages
+        	// go through all tab pages
             for (int i = 0; i < mainTabs.TabPages.Count; i++)
             {
                 if (mainTabs.GetTabRect(i).Contains(mainTabs.PointToClient(Cursor.Position)))
                 {
                     // we found the tabpage we want to remove
-                    toRemove = i;
+                    string key = mainTabs.TabPages[i].Name;
+                    mainTabs.TabPages.RemoveAt(i);
                     break;
                 }
             }
-
-            // is there anything to remove?
-            if (toRemove != -1)
-                mainTabs.TabPages.RemoveAt(toRemove);
 
 	        if (mainTabs.TabCount == 0) { menuItemClose.Enabled = false; }
 	    }
 
 	    private void ConnectToQueue(string connectionString)
 		{
-            menuItemClose.Enabled = true;
-	        TabPage tabPage = new TabPage();
-			tabPage.AutoScroll = true;
-			tabPage.Visible = true;
-			MSMQBrowserControl queueBrowser = new MSMQBrowserControl(connectionString);
-		    
-            // Fix the connection string
-            connectionString = queueBrowser.QueueName;
-            tabPage.Name = connectionString;
-            tabPage.Text = connectionString;
-			tabPage.Controls.Add(queueBrowser);
-            tabPage.ToolTipText = string.Format("Connection to: {0}", connectionString);
-            queueBrowsers.Add(connectionString, tabPage);
-			
-			//TODO: Add a right click menu item to close the control. Ensure that it will disable the "File | Close" menu item.
-			queueBrowser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            mainTabs.Controls.Add(tabPage);
-		    mainTabs.SelectTab(tabPage);
+	    	
+	        // TODO: Move this code to the connect dialog.
+	        if (mainTabs.TabPages.ContainsKey(connectionString))
+	        {
+	            mainTabs.SelectTab(connectionString);
+	        }
+            else
+	        {
+            	TabPage tabPage = new TabPage();
+            	tabPage.AutoScroll = true;
+            	tabPage.Visible = true;
+            	
+            	MSMQBrowserControl queueBrowser = MSMQBrowserControl.Create(connectionString);
+            	
+            	// Fix the connection string
+            	connectionString = queueBrowser.QueueName;
+            	tabPage.Name = connectionString;
+            	tabPage.Text = connectionString;
+            	tabPage.Controls.Add(queueBrowser);
+            	tabPage.ToolTipText = string.Format("Connection to: {0}", connectionString);
+            	
+            	//TODO: Add a right click menu item to close the control. Ensure that it will disable the "File | Close" menu item.
+            	queueBrowser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            	mainTabs.Controls.Add(tabPage);
+            	mainTabs.SelectTab(tabPage);
+            	menuItemClose.Enabled = true;
+		    }
 		}
 		
 		public void ListHostQueues (string hostName)
@@ -274,17 +277,8 @@ namespace MQManager.GUI.Forms
             MessagingProviderNode node = e.Node.Tag as MessagingProviderNode;
             if (node == null) { return; }
 	        string host = node.Text;
-	        
-	        // TODO: Add code to remove items from the dictionary, or don't use it.
-	        if (queueBrowsers.ContainsKey(host))
-	        {
-	            mainTabs.SelectTab(host);
-	        }
-            else
-	        {
-                //TODO: Store the ImessageProvider in the MessagingProviderNode and load the queue that way.
-	            ConnectToQueue(host);
-	        }
+	       	    
+	        ConnectToQueue(host);
 	    }
 
 

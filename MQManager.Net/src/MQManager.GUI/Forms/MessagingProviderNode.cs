@@ -14,14 +14,35 @@
  * limitations under the License.
  */
 
-using Aga.Controls.Tree;
+using System.Windows.Forms;
 
+using Aga.Controls.Tree;
 using MQManager.SPI;
 
 namespace MQManager.GUI.Forms
 {
+	/// <summary>
+	/// A node for TreeViewAdv that handles <see cref="IMessagingProvider"/>
+	/// </summary>
     internal class MessagingProviderNode : Node
     {
-        public MessagingProviderNode(IMessagingProvider messagingProvider) : base(messagingProvider.Name) { }
+    	private IMessagingProvider _provider;
+    	
+    	/// <summary>
+    	/// The provider contained in this node.
+    	/// </summary>
+    	public IMessagingProvider Provider
+    	{
+    		get { return _provider; }
+    	}
+    	
+    	/// <summary>
+    	/// Created a new <see cref="MessagingProviderNode"/>.
+    	/// </summary>
+    	/// <param name="messagingProvider">The instance of <see cref="IMessagingProvider"/>.</param>
+        public MessagingProviderNode(IMessagingProvider messagingProvider) : base(messagingProvider.Name)
+        {
+        	_provider = messagingProvider;
+    	}
     }
 }

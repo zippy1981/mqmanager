@@ -57,6 +57,20 @@ namespace MQManager.GUI.Forms
 	    {
             get { return _messagingProvider.Name; }
 	    }
+	    
+	    #region Factory Methods
+	    
+	    /// <summary>
+	    /// Creates a <see cref="MSMQBrowserControl"/> for a given connection string.
+	    /// </summary>
+	    /// <param name="connectionString">The connection string to the MSMQ.</param>
+	    /// <returns>A <see cref="MSMQBrowserControl"/>.</returns>
+	    public static MSMQBrowserControl Create (string connectionString) {
+	    	MSMQProvider provider = new MSMQProvider(connectionString);
+	    	return new MSMQBrowserControl(provider);
+	    }
+	    
+	    #endregion
 
 
 		private MSMQBrowserControl()
@@ -64,15 +78,13 @@ namespace MQManager.GUI.Forms
 			InitializeComponent();
 		}
 
-		public MSMQBrowserControl(string connectionString) : this()
+		public MSMQBrowserControl(MSMQProvider queuProvider) : this()
 		{
-		    queuePath.Text = connectionString;
+		    queuePath.Text = queuProvider.Name;
+		    _messagingProvider = queuProvider;
+		    
             Submit_Click(null, null);
-            // So we get the fully qualified queue path.
-            if (_messagingProvider != null)
-		    {
-		        queuePath.Text = _messagingProvider.Name;
-		    }
+            				
 		}
 
 		/// <summary>
@@ -241,13 +253,10 @@ namespace MQManager.GUI.Forms
 
 		private void Submit_Click(object sender, System.EventArgs e)
 		{
-		    string conUrl = this.queuePath.Text;
-
-			string results = null;
+		    string results = null;
 			try
 			{
 				clearButton_Click(sender, e);
-				_messagingProvider = new MSMQProvider(conUrl);
 				IList messages = _messagingProvider.GetMessageHeaders();
 				foreach(IMessageHeader header in messages)
 				{

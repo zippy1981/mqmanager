@@ -23,7 +23,7 @@ namespace MQManager.SPI.MSMQ
 	/// <summary>
 	/// A class that represents a host's MSMQ collection.
 	/// </summary>
-	public class HostMSMQs : IQueueHostInfo
+	public class MSMQHost : IQueueHostInfo
 	{
 	    readonly List<IMessagingProvider> _privateQueues = new List<IMessagingProvider>();
         /// <summary>
@@ -49,7 +49,7 @@ namespace MQManager.SPI.MSMQ
         /// Creates a <see cref="HostMSMQs"/> object and populates it with the hosts MSMQs.
         /// </summary>
         /// <param name="hostName">The host </param>
-		public HostMSMQs(string hostName)
+		public MSMQHost(string hostName)
 		{
 			try
 			{

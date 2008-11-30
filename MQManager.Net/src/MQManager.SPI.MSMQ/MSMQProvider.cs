@@ -24,7 +24,6 @@ namespace MQManager.SPI.MSMQ
 {
 	public class MSMQProvider : IMessagingProvider
 	{
-
 		private MessageQueue queue;
 		private MSMQMessagingTransaction currentTransaction;
 		
@@ -38,7 +37,8 @@ namespace MQManager.SPI.MSMQ
 		public string Name {
             get { return queue.Path; }
 		}
-
+		
+		
         public MSMQProvider(string path)
 		{
             queue = new MessageQueue(path);

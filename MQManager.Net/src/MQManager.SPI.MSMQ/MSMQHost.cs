@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+using System;
 using System.Collections.Generic;
 using System.Messaging;
 
@@ -50,8 +51,10 @@ namespace MQManager.SPI.MSMQ
         /// <param name="hostName">The host </param>
 		public HostMSMQs(string hostName)
 		{
-			try {
-				foreach (MessageQueue queue in MessageQueue.GetPrivateQueuesByMachine(hostName))
+			try
+			{
+			    MessageQueue[] privateQueuesByMachine = MessageQueue.GetPrivateQueuesByMachine(hostName);
+			    foreach (MessageQueue queue in privateQueuesByMachine)
 				{
 					_privateQueues.Add(new MSMQProvider(queue));
 				}
@@ -60,13 +63,24 @@ namespace MQManager.SPI.MSMQ
 			{
 				System.Diagnostics.Trace.TraceError("Error listing private queues. Message: {0}", ex.Message);
 			}
-			try {
-				foreach (MessageQueue queue in MessageQueue.GetPublicQueuesByMachine(hostName))
+            catch(InvalidOperationException ex)
+            {
+                System.Diagnostics.Trace.TraceError("Error listing private queues. Message: {0}", ex.Message);
+            }
+
+			try
+			{
+			    MessageQueue[] publicQueuesByMachine = MessageQueue.GetPublicQueuesByMachine(hostName);
+			    foreach (MessageQueue queue in publicQueuesByMachine)
 				{
 					_publicQueues.Add(new MSMQProvider(queue));
 				}
 			}
 			catch (MessageQueueException ex)
+			{
+				System.Diagnostics.Trace.TraceError("Error listing public queues. Message: {0}", ex.Message);
+			}
+			catch (InvalidOperationException ex)
 			{
 				System.Diagnostics.Trace.TraceError("Error listing public queues. Message: {0}", ex.Message);
 			}

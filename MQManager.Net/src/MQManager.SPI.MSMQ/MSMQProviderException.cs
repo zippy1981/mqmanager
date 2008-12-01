@@ -5,7 +5,7 @@ namespace MQManager.SPI.MSMQ
     /// <summary>
     /// Custom exception class for MSMQPrvider.
     /// </summary>
-    public class MSMQProviderException : Exception
+    public class MSMQProviderException : MessagingException
     {
         private string _queue;
         

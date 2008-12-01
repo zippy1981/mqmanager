@@ -15,7 +15,6 @@
  */
 
 using System;
-using System.Text;
 using System.Windows.Forms;
 using Aga.Controls.Tree;
 using MQManager.SPI;
@@ -46,10 +45,9 @@ namespace MQManager.GUI.Forms
 		/// <summary>
 		/// creates a HostMQMQ browser for the given host.
 		/// </summary>
-		/// <param name="hostName"></param>
+		/// <param name="hostName">The host to connect to.</param>
 		public HostMSMQBrowser(string hostName) : this()
 		{
-			StringBuilder sb = new StringBuilder();
 			_hostQueues = new MSMQHost(hostName);
 
             _hostTreeModel = new TreeModel();

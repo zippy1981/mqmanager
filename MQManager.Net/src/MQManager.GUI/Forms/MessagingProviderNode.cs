@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-using System.Windows.Forms;
-
 using Aga.Controls.Tree;
 using MQManager.SPI;
 

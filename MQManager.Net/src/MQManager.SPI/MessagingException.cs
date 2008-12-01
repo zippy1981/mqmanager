@@ -23,21 +23,26 @@ namespace MQManager.SPI
 	/// </summary>
 	public class MessagingException : Exception
 	{
-		private Exception exception;
-
+		/// <summary>
+		/// Creates a MessagingException with the given message.
+		/// </summary>
+		/// <param name="message">Message for the exception.</param>
 		public MessagingException(string message) : base(message)
 		{
 			
 		}
 
-		public MessagingException(Exception ex) : base(ex.Message)
-		{
-			
-		}
+		/// <summary>
+		/// Creates a MessagingException with the given inner exception.
+		/// </summary>
+		/// <param name="inner">The inner exception.</param>
+		public MessagingException(Exception inner) : base(inner.Message) { }
 
-		public MessagingException(string message, Exception ex) : base(message)
-		{
-			this.exception = ex;
-		}
+		/// <summary>
+		/// Creates a MessagingException with the given message and inner exception.
+		/// </summary>
+		/// <param name="message">Message for the exception.</param>
+		/// <param name="inner">The inner exception.</param>
+		public MessagingException(string message, Exception inner) : base(message, inner) { }
 	}
 }

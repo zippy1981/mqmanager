@@ -220,7 +220,7 @@
                 {
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_DE481CEE80D84B2585C5EE20BF97D1B3"
                     {
-                    "Name" = "8:Digital Focus"
+                    "Name" = "8:Zippysoft"
                     "AlwaysCreate" = "11:FALSE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
@@ -369,7 +369,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MQManager.NET"
         "ProductCode" = "8:{0B741D4B-BD0B-42DC-9FF0-A25BA103B708}"
-        "PackageCode" = "8:{B6F7BD33-FA94-4AC0-ACEC-B06CFC50B4FE}"
+        "PackageCode" = "8:{20EA4CBB-3F1C-4F26-9C0A-A2DFF58BA764}"
         "UpgradeCode" = "8:{F7D727EF-C957-430F-AC4D-0995681C9417}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
@@ -1008,6 +1008,34 @@
             "OutputConfiguration" = "8:"
             "OutputGroupCanonicalName" = "8:ContentFiles"
             "OutputProjectGuid" = "8:{A9CC6556-5E48-4958-952F-87480A06B4E3}"
+            "ShowKeyOutput" = "11:TRUE"
+                "ExcludeFilters"
+                {
+                }
+            }
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_294C1B5D06404B24B29AF5D4DB30ECAE"
+            {
+            "SourcePath" = "8:"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_9FA817F15B754A318F4D3435690FCA3E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            "ProjectOutputGroupRegister" = "3:1"
+            "OutputConfiguration" = "8:"
+            "OutputGroupCanonicalName" = "8:ContentFiles"
+            "OutputProjectGuid" = "8:{E73BB233-D88B-44A7-A98F-D71EE158381D}"
             "ShowKeyOutput" = "11:TRUE"
                 "ExcludeFilters"
                 {

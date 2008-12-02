@@ -33,6 +33,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_E266221AFE6EC7B28E0EF1E0FA0E9D93"
+        "OwnerKey" = "8:_7EF2A7D7A5C947D59DD571705F63154A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_F302CEAC9256097B22FDE977DB027A8A"
         "OwnerKey" = "8:_7EF2A7D7A5C947D59DD571705F63154A"
         "MsmSig" = "8:_UNDEFINED"
@@ -53,6 +59,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_7ED09105BADEEFA909F3BFE12E0EA41E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_E266221AFE6EC7B28E0EF1E0FA0E9D93"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -145,7 +157,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MQManager.SPI, Version=0.3.3249.35948, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:MQManager.SPI, Version=0.4.3256.36193, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_7ED09105BADEEFA909F3BFE12E0EA41E"
@@ -172,11 +184,42 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E266221AFE6EC7B28E0EF1E0FA0E9D93"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Aga.Controls, Version=1.6.1.0, Culture=neutral, PublicKeyToken=fcc90fbf924463a3, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_E266221AFE6EC7B28E0EF1E0FA0E9D93"
+                    {
+                    "Name" = "8:Aga.Controls.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Aga.Controls.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_DDBDBA1D3E324B4881A166DFD3037E3C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F302CEAC9256097B22FDE977DB027A8A"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MQManager.SPI.MSMQ, Version=0.3.3249.35948, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:MQManager.SPI.MSMQ, Version=0.4.3256.36193, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_F302CEAC9256097B22FDE977DB027A8A"
@@ -258,14 +301,14 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MQManager.NET"
-        "ProductCode" = "8:{0640B3B0-2251-4F9B-A690-B52EDE69FD9F}"
-        "PackageCode" = "8:{6DD983CD-743D-4A57-9951-7A5C116A012F}"
+        "ProductCode" = "8:{104A19E9-56CC-4CC8-BC3F-5D4072F842C0}"
+        "PackageCode" = "8:{C129B3DA-0A13-4695-88EE-F13769A98280}"
         "UpgradeCode" = "8:{B67F6E87-DDA7-4607-8636-13BB041194A2}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:0.4.0"
+        "ProductVersion" = "8:0.5.0"
         "Manufacturer" = "8:Zippysoft"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://opensource.digitalfocus.com/mqmanager"

@@ -15,6 +15,8 @@
  */
 
 using System;
+using System.ComponentModel;
+using System.Windows.Forms;
 using MQManager.SPI;
 using MQManager.SPI.MSMQ;
 
@@ -23,19 +25,19 @@ namespace MQManager.GUI.Forms
 	/// <summary>
 	/// Summary description for ForwardMessageDialog.
 	/// </summary>
-	public class ForwardMessageDialog : System.Windows.Forms.Form
+	public class ForwardMessageDialog : Form
 	{
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.TextBox forwardQueueUri;
-		private System.Windows.Forms.Button forwardButton;
-		private System.Windows.Forms.Button cancelButton;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.CheckBox copyCheckBox;
-		private System.Windows.Forms.TextBox messageLabel;
+		private Label label1;
+		private TextBox forwardQueueUri;
+		private Button forwardButton;
+		private Button cancelButton;
+		private Label label2;
+		private CheckBox copyCheckBox;
+		private TextBox messageLabel;
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		private System.ComponentModel.Container components = null;
+		private Container components = null;
 
 		public ForwardMessageDialog()
 		{
@@ -152,14 +154,14 @@ namespace MQManager.GUI.Forms
 		}
 		#endregion
 
-		private void button1_Click(object sender, System.EventArgs e)
+		private void button1_Click(object sender, EventArgs e)
 		{
 			if(OnForward != null)
 				OnForward(new MSMQProvider(forwardQueueUri.Text), messageLabel.Text, copyCheckBox.Checked);
 			this.Close();
 		}
 
-		private void button2_Click(object sender, System.EventArgs e)
+		private void button2_Click(object sender, EventArgs e)
 		{
 			if(OnCancel != null)
 				OnCancel(sender, e);

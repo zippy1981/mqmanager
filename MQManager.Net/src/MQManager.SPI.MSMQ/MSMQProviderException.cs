@@ -1,5 +1,3 @@
-using System;
-
 namespace MQManager.SPI.MSMQ
 {
     /// <summary>

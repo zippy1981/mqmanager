@@ -77,7 +77,7 @@ namespace MQManager.SPI.MSMQ
 					}
 					catch (InvalidOperationException ex)
 					{
-						System.Diagnostics.Trace.WriteLine("Type: " + ex.GetType().Name + " Message: " + ex.Message);
+						Trace.WriteLine("Type: " + ex.GetType().Name + " Message: " + ex.Message);
 						MessageBody = ex.Message;
 						return;
 					}

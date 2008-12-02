@@ -16,6 +16,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Messaging;
 
 namespace MQManager.SPI.MSMQ
@@ -61,11 +62,11 @@ namespace MQManager.SPI.MSMQ
 			}
 			catch (MessageQueueException ex)
 			{
-				System.Diagnostics.Trace.TraceError("Error listing private queues. Message: {0}", ex.Message);
+				Trace.TraceError("Error listing private queues. Message: {0}", ex.Message);
 			}
             catch(InvalidOperationException ex)
             {
-                System.Diagnostics.Trace.TraceError("Error listing private queues. Message: {0}", ex.Message);
+                Trace.TraceError("Error listing private queues. Message: {0}", ex.Message);
             }
 
 			try
@@ -78,11 +79,11 @@ namespace MQManager.SPI.MSMQ
 			}
 			catch (MessageQueueException ex)
 			{
-				System.Diagnostics.Trace.TraceError("Error listing public queues. Message: {0}", ex.Message);
+				Trace.TraceError("Error listing public queues. Message: {0}", ex.Message);
 			}
 			catch (InvalidOperationException ex)
 			{
-				System.Diagnostics.Trace.TraceError("Error listing public queues. Message: {0}", ex.Message);
+				Trace.TraceError("Error listing public queues. Message: {0}", ex.Message);
 			}
 		}
 	}

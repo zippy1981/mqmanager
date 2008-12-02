@@ -368,14 +368,14 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MQManager.NET"
-        "ProductCode" = "8:{0B741D4B-BD0B-42DC-9FF0-A25BA103B708}"
-        "PackageCode" = "8:{20EA4CBB-3F1C-4F26-9C0A-A2DFF58BA764}"
+        "ProductCode" = "8:{31F96020-CBF8-48F3-8F47-E00B2A53DA84}"
+        "PackageCode" = "8:{CF0BB026-DC1F-4008-A568-880AFD2E4FB9}"
         "UpgradeCode" = "8:{F7D727EF-C957-430F-AC4D-0995681C9417}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:0.4.0"
+        "ProductVersion" = "8:0.5.0"
         "Manufacturer" = "8:Zippysoft"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://opensource.digitalfocus.com/mqmanager"
@@ -1043,7 +1043,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_573C19F96E8C404F99DC7BF575DED4B9"
             {
-            "SourcePath" = "8:..\\MQManager.SPI\\bin\\Debug\\MQManager.SPI.xml"
+            "SourcePath" = "8:"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_BF18DFAF65084E2E9E428829424869E3"

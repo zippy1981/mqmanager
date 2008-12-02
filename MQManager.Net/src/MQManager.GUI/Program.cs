@@ -13,10 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 using System;
 using System.Windows.Forms;
- 
+using MQManager.GUI.Forms;
+
 namespace MQManager.GUI
 {
 	/// <summary>
@@ -30,7 +31,7 @@ namespace MQManager.GUI
 		[STAThread]
 		private static void Main() 
 		{
-			Application.Run(new Forms.MQManagerForm());
+			Application.Run(new MQManagerForm());
 		}
 	}
 }

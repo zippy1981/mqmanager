@@ -15,31 +15,22 @@
  */
 
 using System;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace MQManager.GUI.Forms
 {
-
 	/// <summary>
-	/// Dialog for connecting to a queue.
+	/// Dialog for connecting to a queue or host.
 	/// </summary>
-	public class ConnectMessageDialog : System.Windows.Forms.Form
+	internal class ConnectMessageDialog : Form
 	{
-		
-		const string JOURNAL = "\\Journal$";
-		const string DEADLETTER = "\\_deadletter";
-
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.TextBox connectionString;
-		private System.Windows.Forms.CheckBox journalCheckBox;
-		private System.Windows.Forms.CheckBox deadletterCheckBox;
-		private System.Windows.Forms.Button cmdForward;
-		private System.Windows.Forms.Button cmdCancel;
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		private System.ComponentModel.Container components = null;
+		private Container components = null;
 
-		public ConnectMessageDialog()
+		protected ConnectMessageDialog()
 		{
 			//
 			// Required for Windows Form Designer support
@@ -49,6 +40,12 @@ namespace MQManager.GUI.Forms
 			//
 			// TODO: Add any constructor code after InitializeComponent call
 			//
+		}
+
+		internal ConnectMessageDialog(string title) : this()
+		{
+			this.Text = title;
+			label.Text = title;
 		}
 
 		/// <summary>
@@ -76,25 +73,21 @@ namespace MQManager.GUI.Forms
 			this.connectionString = new System.Windows.Forms.TextBox();
 			this.cmdForward = new System.Windows.Forms.Button();
 			this.cmdCancel = new System.Windows.Forms.Button();
-			this.label1 = new System.Windows.Forms.Label();
-			this.journalCheckBox = new System.Windows.Forms.CheckBox();
-			this.deadletterCheckBox = new System.Windows.Forms.CheckBox();
+			this.label = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// connectionString
 			// 
-			this.connectionString.Location = new System.Drawing.Point(10, 37);
+			this.connectionString.Location = new System.Drawing.Point(8, 32);
 			this.connectionString.Name = "connectionString";
-			this.connectionString.Size = new System.Drawing.Size(432, 22);
+			this.connectionString.Size = new System.Drawing.Size(360, 20);
 			this.connectionString.TabIndex = 0;
-			this.connectionString.Text = "";
-			this.connectionString.TextChanged += new System.EventHandler(this.connectionString_TextChanged);
 			// 
 			// cmdForward
 			// 
-			this.cmdForward.Location = new System.Drawing.Point(10, 120);
+			this.cmdForward.Location = new System.Drawing.Point(8, 104);
 			this.cmdForward.Name = "cmdForward";
-			this.cmdForward.Size = new System.Drawing.Size(90, 27);
+			this.cmdForward.Size = new System.Drawing.Size(75, 23);
 			this.cmdForward.TabIndex = 1;
 			this.cmdForward.Text = "C&onnect";
 			this.cmdForward.Click += new System.EventHandler(this.connect_Click);
@@ -102,59 +95,43 @@ namespace MQManager.GUI.Forms
 			// cmdCancel
 			// 
 			this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cmdCancel.Location = new System.Drawing.Point(115, 120);
+			this.cmdCancel.Location = new System.Drawing.Point(96, 104);
 			this.cmdCancel.Name = "cmdCancel";
-			this.cmdCancel.Size = new System.Drawing.Size(90, 27);
+			this.cmdCancel.Size = new System.Drawing.Size(75, 23);
 			this.cmdCancel.TabIndex = 2;
 			this.cmdCancel.Text = "&Cancel";
 			this.cmdCancel.Click += new System.EventHandler(this.cancel_Click);
 			// 
-			// label1
+			// label
 			// 
-			this.label1.Location = new System.Drawing.Point(10, 9);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(120, 27);
-			this.label1.TabIndex = 3;
-			this.label1.Text = "Queue Path";
-			// 
-			// journalCheckBox
-			// 
-			this.journalCheckBox.Location = new System.Drawing.Point(10, 74);
-			this.journalCheckBox.Name = "journalCheckBox";
-			this.journalCheckBox.Size = new System.Drawing.Size(124, 28);
-			this.journalCheckBox.TabIndex = 4;
-			this.journalCheckBox.Text = "View Journal";
-			this.journalCheckBox.CheckedChanged += new System.EventHandler(this.journalCheckBox_CheckedChanged);
-			// 
-			// deadletterCheckBox
-			// 
-			this.deadletterCheckBox.Location = new System.Drawing.Point(144, 74);
-			this.deadletterCheckBox.Name = "deadletterCheckBox";
-			this.deadletterCheckBox.Size = new System.Drawing.Size(125, 28);
-			this.deadletterCheckBox.TabIndex = 5;
-			this.deadletterCheckBox.Text = "Deadletter";
-			this.deadletterCheckBox.CheckedChanged += new System.EventHandler(this.deadletterCheckBox_CheckedChanged);
+			this.label.Location = new System.Drawing.Point(8, 8);
+			this.label.Name = "label";
+			this.label.Size = new System.Drawing.Size(100, 23);
+			this.label.TabIndex = 3;
+			this.label.Text = "hostname";
 			// 
 			// ConnectMessageDialog
 			// 
 			this.AcceptButton = this.cmdForward;
-			this.AutoScaleBaseSize = new System.Drawing.Size(6, 15);
+			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
 			this.CancelButton = this.cmdCancel;
 			this.ClientSize = new System.Drawing.Size(460, 171);
-			this.Controls.Add(this.deadletterCheckBox);
-			this.Controls.Add(this.journalCheckBox);
 			this.Controls.Add(this.connectionString);
-			this.Controls.Add(this.label1);
+			this.Controls.Add(this.label);
 			this.Controls.Add(this.cmdCancel);
 			this.Controls.Add(this.cmdForward);
 			this.Name = "ConnectMessageDialog";
-			this.Text = "Connect to Queue";
+			this.Text = "Connect to Host";
 			this.ResumeLayout(false);
-
+			this.PerformLayout();
 		}
+		protected System.Windows.Forms.Label label;
+		protected System.Windows.Forms.TextBox connectionString;
+		private System.Windows.Forms.Button cmdForward;
+		private System.Windows.Forms.Button cmdCancel;
 		#endregion
 
-		private void connect_Click(object sender, System.EventArgs e)
+		private void connect_Click(object sender, EventArgs e)
 		{
 			if(OnConnect != null)
 			{
@@ -163,64 +140,19 @@ namespace MQManager.GUI.Forms
 			this.Close();
 		}
 
-		private void cancel_Click(object sender, System.EventArgs e)
+		private void cancel_Click(object sender, EventArgs e)
 		{
 			if(OnCancel != null)
 				OnCancel(sender, e);
 			this.Close();
 		}
 
-		private void journalCheckBox_CheckedChanged(object sender, System.EventArgs e)
-		{
-			if(journalCheckBox.Checked)
-			{
-				connectionString.Text += JOURNAL;
-			}
-			else
-			{
-				if(connectionString.Text.EndsWith(JOURNAL))
-				{
-					connectionString.Text = connectionString.Text.Substring(0, connectionString.Text.IndexOf(JOURNAL));
-				}
-			}
-		}
-		
-		private void deadletterCheckBox_CheckedChanged(object sender, System.EventArgs e)
-		{
-			if(deadletterCheckBox.Checked)
-			{
-				connectionString.Text += DEADLETTER;
-			}
-			else
-			{
-				if(connectionString.Text.EndsWith(DEADLETTER))
-				{
-					connectionString.Text = connectionString.Text.Substring(0, connectionString.Text.IndexOf(DEADLETTER));
-				}
-			}
-			
-		}
-
-		private void connectionString_TextChanged(object sender, System.EventArgs e)
-		{
-			if(journalCheckBox.Checked)
-			{
-				if(!connectionString.Text.EndsWith(JOURNAL))
-				{
-					journalCheckBox.Checked = false;
-				}
-			}
-			else if (connectionString.Text.EndsWith(JOURNAL))
-			{
-				journalCheckBox.Checked = true;
-			}
-		}
-
 		public event ConnectEventHandler OnConnect;
 		public event EventHandler OnCancel;
-
-
 	}
-
+	
+	/// <summary>
+	/// Delegate for connection event.
+	/// </summary>
 	public delegate void ConnectEventHandler(string connectionString);
 }

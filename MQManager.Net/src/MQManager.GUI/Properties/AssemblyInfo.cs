@@ -19,9 +19,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MQManager.GUI")]
-[assembly: AssemblyDescription("")]
-
+[assembly: AssemblyTitle("MQManager.NET")]
+[assembly: AssemblyDescription(
+    "MQManager.NET is distributed under version 2.0 of the Apache License.\r\n\r\n" +
+    "The following external libraries are also distributed with MQmanager:\r\n" +
+   "   * TreeViewAdv(Aga.Controls.dll) Copyright © Andrey Gliznetsov 2006 - 2007 (https://sourceforge.net/projects/treeviewadv/)\r\n")]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("3B559AE1-0622-4e70-9590-754FA5450577")]

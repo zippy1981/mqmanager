@@ -16,9 +16,9 @@
 
 using System;
 using System.Collections;
+using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
-
 using MQManager.SPI;
 using MQManager.SPI.MSMQ;
 
@@ -27,28 +27,28 @@ namespace MQManager.GUI.Forms
 	/// <summary>
 	/// This control displays the messages in a single message queue.
 	/// </summary>
-	public class MSMQBrowserControl : System.Windows.Forms.UserControl
+	public class MSMQBrowserControl : UserControl
 	{
-		private System.Windows.Forms.Label queuePathLabel;
-		private System.Windows.Forms.TextBox queuePath;
+		private Label queuePathLabel;
+		private TextBox queuePath;
 
-		private System.Windows.Forms.ComboBox messageHeaders;
-		private System.Windows.Forms.RichTextBox peekedMessage;
+		private ComboBox messageHeaders;
+		private RichTextBox peekedMessage;
 
 
-		private System.Windows.Forms.Label messageLabel;
+		private Label messageLabel;
 
-		private System.Windows.Forms.Label statusMessageLabel;
+		private Label statusMessageLabel;
 
-		private System.Windows.Forms.Button listMessagesButton;
-		private System.Windows.Forms.Button clearButton;
-		private System.Windows.Forms.Button saveButton;
-		private System.Windows.Forms.Button forwardButton;
-		private System.Windows.Forms.Button deleteButton;
+		private Button listMessagesButton;
+		private Button clearButton;
+		private Button saveButton;
+		private Button forwardButton;
+		private Button deleteButton;
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		private System.ComponentModel.Container components = null;
+		private Container components = null;
 
         /// <summary>
         /// The fully qualified name of the MSMQ.
@@ -251,7 +251,7 @@ namespace MQManager.GUI.Forms
 
 		private IMessagingProvider _messagingProvider;
 
-		private void Submit_Click(object sender, System.EventArgs e)
+		private void Submit_Click(object sender, EventArgs e)
 		{
 		    string results = null;
 			try
@@ -271,7 +271,7 @@ namespace MQManager.GUI.Forms
 			this.peekedMessage.Text = results;
 		}
 
-		private void clearButton_Click(object sender, System.EventArgs e)
+		private void clearButton_Click(object sender, EventArgs e)
 		{
 			messageHeaders.Items.Clear();
 			messageHeaders.Items.Add("Please Choose a Message. . .");
@@ -280,7 +280,7 @@ namespace MQManager.GUI.Forms
 			statusMessageLabel.Text = "All Messages cleared.";
 		}
 
-		private void showForwardButton_Click(object sender, System.EventArgs e)
+		private void showForwardButton_Click(object sender, EventArgs e)
 		{
 			ForwardMessageDialog dialog = new ForwardMessageDialog();
 			dialog.OriginalMessageHeader(CurrentMessageHeader());
@@ -322,12 +322,12 @@ namespace MQManager.GUI.Forms
 			}
 		}
 
-		private void cancelButton_Click(object sender, System.EventArgs e)
+		private void cancelButton_Click(object sender, EventArgs e)
 		{
 			this.statusMessageLabel.Text = "Action Canceled";
 		}
 
-		private void messageHeadersComboBox_SelectedIndexChanged(object sender, System.EventArgs e)
+		private void messageHeadersComboBox_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			IMessageHeader header = CurrentMessageHeader();
 
@@ -355,7 +355,7 @@ namespace MQManager.GUI.Forms
 			return header;
 		}
 
-		private void saveButton_Click(object sender, System.EventArgs e)
+		private void saveButton_Click(object sender, EventArgs e)
 		{
             SaveFileDialog dialog = new SaveFileDialog();
 			dialog.Filter = "xml files (*.xml)|*.xml|message Files (*.msg)|*.msg";
@@ -384,7 +384,7 @@ namespace MQManager.GUI.Forms
 			}
 		}
 
-		private void deleteButton_Click(object sender, System.EventArgs e)
+		private void deleteButton_Click(object sender, EventArgs e)
 		{
 			string confirm = @"Are you sure that you want to remove this message from the queue? Once completed, this operation can not be undone.";
 

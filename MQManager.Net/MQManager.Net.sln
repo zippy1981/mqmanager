@@ -1,5 +1,7 @@
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+# SharpDevelop 3.0.0.3647
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MQManager.GUI", "src\MQManager.GUI\MQManager.GUI.csproj", "{A9CC6556-5E48-4958-952F-87480A06B4E3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MQManager.SPI", "src\MQManager.SPI\MQManager.SPI.csproj", "{E3B9C0BF-8FED-40D7-B78B-58849964D8CB}"
@@ -10,12 +12,16 @@ Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MQManagerSetup", "src\MQMan
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MQManagerSetupSource", "src\MQManagerSetupSource\MQManagerSetupSource.vdproj", "{11C37B52-EA16-4DE7-8080-8AF2FAE38B9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aga.Controls", "src\Aga.Controls\Aga.Controls.csproj", "{E73BB233-D88B-44A7-A98F-D71EE158381D}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External Code", "External Code", "{DDA1AF3E-D8FA-4A4E-AB57-3C92B4B137C1}"
 	ProjectSection(FolderStartupServices) = postProject
 		{B4F97281-0DBD-4835-9ED8-7DFB966E87FF} = {B4F97281-0DBD-4835-9ED8-7DFB966E87FF}
 	EndProjectSection
+	ProjectSection(SolutionItems) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aga.Controls", "src\Aga.Controls\Aga.Controls.csproj", "{E73BB233-D88B-44A7-A98F-D71EE158381D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visualizer", "src\Visualizer\Visualizer.csproj", "{49F5835F-B647-444D-BAAA-6AC39D8DDE59}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DOCS", "DOCS", "{67BF839A-132A-4155-A870-FFBC0FB0274A}"
 	ProjectSection(SolutionItems) = preProject
@@ -58,11 +64,16 @@ Global
 		{E73BB233-D88B-44A7-A98F-D71EE158381D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E73BB233-D88B-44A7-A98F-D71EE158381D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E73BB233-D88B-44A7-A98F-D71EE158381D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49F5835F-B647-444D-BAAA-6AC39D8DDE59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49F5835F-B647-444D-BAAA-6AC39D8DDE59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49F5835F-B647-444D-BAAA-6AC39D8DDE59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49F5835F-B647-444D-BAAA-6AC39D8DDE59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{49F5835F-B647-444D-BAAA-6AC39D8DDE59} = {DDA1AF3E-D8FA-4A4E-AB57-3C92B4B137C1}
 		{E73BB233-D88B-44A7-A98F-D71EE158381D} = {DDA1AF3E-D8FA-4A4E-AB57-3C92B4B137C1}
 	EndGlobalSection
 EndGlobal

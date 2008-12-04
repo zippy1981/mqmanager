@@ -169,6 +169,10 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+    <ProjectReference Include="..\Visualizer\Visualizer.csproj">
+      <Project>{49F5835F-B647-444D-BAAA-6AC39D8DDE59}</Project>
+      <Name>Visualizer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

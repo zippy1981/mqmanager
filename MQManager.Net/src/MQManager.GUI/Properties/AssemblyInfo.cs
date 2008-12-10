@@ -25,7 +25,8 @@ using System.Runtime.InteropServices;
     "The following external libraries are also distributed with MQmanager:\r\n" +
     "   * TreeViewAdv(Aga.Controls.dll) Copyright © Andrey Gliznetsov 2006 - 2007 (https://sourceforge.net/projects/treeviewadv/)\r\n" +
 	"   * XML Visualizer (Visualizer.dll) Copyright © Lars Hove Christiansen (larshove@gmail.com) 2008 (http://www.codeplex.com/XmlVisualizer)\r\n" +
-	"   * SharpDevelop Text Editor (ICSharpCode.TextEditor.dll) Copyright © AlphaSierraPapa 2000-2008 (http://www.icsharpcode.net/)\r\n")]
+	"   * SharpDevelop Text Editor (ICSharpCode.TextEditor.dll) Copyright © AlphaSierraPapa 2000-2008 (http://www.icsharpcode.net/)\r\n" +
+    "Special thanks to Gustavo Guerra for allowing me to use his MessageQueue.GetCount() extension method.")]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("3B559AE1-0622-4e70-9590-754FA5450577")]

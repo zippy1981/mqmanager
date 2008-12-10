@@ -16,12 +16,17 @@
 
 using System;
 using System.Collections;
+using System.Diagnostics;
 using System.Messaging;
+
 using MQManager.GUI;
 using MQManager.SPI;
 
 namespace MQManager.SPI.MSMQ
 {
+    /// <summary>
+    /// Representation of an MSMQ.
+    /// </summary>
 	public class MSMQProvider : IMessagingProvider
 	{
 		private MessageQueue queue;
@@ -37,8 +42,15 @@ namespace MQManager.SPI.MSMQ
 		public string Name {
             get { return queue.Path; }
 		}
-		
-		
+
+        public uint MessageCount
+	    {
+	        get
+	        {
+	            return queue.GetCount();
+	        }
+	    }
+
         public MSMQProvider(string path)
 		{
             queue = new MessageQueue(path);

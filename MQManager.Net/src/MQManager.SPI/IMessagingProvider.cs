@@ -26,7 +26,12 @@ namespace MQManager.SPI
 		/// <summary>
 		/// The name of the instance of the messaging provider.
 		/// </summary>
-		string Name { get; }
+        string Name { get; }
+
+        /// <summary>
+        /// The number of messages in the queue.
+        /// </summary>
+        uint MessageCount { get; }
 		
 		/// <summary>
 		/// Gets all the messages for the provider.

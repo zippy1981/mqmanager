@@ -33,6 +33,12 @@ namespace MQManager.GUI.Forms
     	{
     		get { return _provider; }
     	}
+
+
+        public uint MessageCount
+        {
+            get { return _provider.MessageCount; }
+        }
     	
     	/// <summary>
     	/// Created a new <see cref="MessagingProviderNode"/>.

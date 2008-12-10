@@ -43,7 +43,7 @@ namespace MQManager.GUI.Forms
 		
 
 		/// <summary>
-		/// creates a HostMQMQ browser for the given host.
+		/// Creates a HostMQMQ browser for the given host.
 		/// </summary>
 		/// <param name="hostName">The host to connect to.</param>
 		public HostMSMQBrowser(string hostName) : this()

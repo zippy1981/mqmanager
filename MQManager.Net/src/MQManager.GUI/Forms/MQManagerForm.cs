@@ -181,7 +181,7 @@ namespace MQManager.GUI.Forms
             this.mainTabs.Location = new System.Drawing.Point(0, 0);
             this.mainTabs.Name = "mainTabs";
             this.mainTabs.SelectedIndex = 0;
-            this.mainTabs.Size = new System.Drawing.Size(861, 611);
+            this.mainTabs.Size = new System.Drawing.Size(860, 611);
             this.mainTabs.TabIndex = 0;
             // 
             // contextMenuTab
@@ -189,18 +189,18 @@ namespace MQManager.GUI.Forms
             this.contextMenuTab.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.closeTabToolStripMenuItem});
             this.contextMenuTab.Name = "contextMenuTab";
-            this.contextMenuTab.Size = new System.Drawing.Size(157, 26);
+            this.contextMenuTab.Size = new System.Drawing.Size(133, 26);
             // 
             // closeTabToolStripMenuItem
             // 
             this.closeTabToolStripMenuItem.Name = "closeTabToolStripMenuItem";
-            this.closeTabToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.closeTabToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.closeTabToolStripMenuItem.Text = "&Close Tab";
             this.closeTabToolStripMenuItem.Click += new System.EventHandler(this.closeTabToolStripMenuItem_Click);
             // 
             // MQManagerForm
             // 
-            this.AutoScaleBaseSize = new System.Drawing.Size(6, 15);
+            this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
             this.ClientSize = new System.Drawing.Size(857, 606);
             this.Controls.Add(this.mainTabs);
             this.Name = "MQManagerForm";
@@ -278,7 +278,7 @@ namespace MQManager.GUI.Forms
         /// <param name="hostName">The host to connect to.</param>
         private void ListHostQueues (string hostName)
 		{
-			this.menuItemClose.Enabled = true;
+			menuItemClose.Enabled = true;
 			TabPage tabPage = new TabPage();
 			tabPage.Text = string.Format("[{0}]", hostName);
 			tabPage.ToolTipText = string.Format("Queues for: {0}", hostName);

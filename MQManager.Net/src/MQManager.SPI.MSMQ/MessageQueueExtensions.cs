@@ -55,10 +55,10 @@ internal static class MessageQueueExtensions
 
     public static uint GetCount(this MessageQueue queue)
     {
-        return GetCount(queue.Path);
+        return getCount(queue.Path);
     }
 
-    private static unsafe uint GetCount(string path)
+    private static unsafe uint getCount(string path)
     {
         MQMGMTPROPS props = new MQMGMTPROPS();
         props.cProp = 1;

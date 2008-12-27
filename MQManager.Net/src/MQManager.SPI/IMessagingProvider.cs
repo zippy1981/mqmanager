@@ -14,14 +14,16 @@
  * limitations under the License.
  */
 
+using System;
 using System.Collections;
 
 namespace MQManager.SPI
 {
 	/// <summary>
 	/// A provider for a collection of messages of some type. E.g. a MSMQ.
-	/// </summary>
-	public interface IMessagingProvider
+    /// </summary>
+    [CLSCompliant(false)]
+    public interface IMessagingProvider
 	{
 		/// <summary>
 		/// The name of the instance of the messaging provider.
@@ -31,6 +33,7 @@ namespace MQManager.SPI
         /// <summary>
         /// The number of messages in the queue.
         /// </summary>
+        [CLSCompliant(false)]
         uint MessageCount { get; }
 		
 		/// <summary>

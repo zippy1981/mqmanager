@@ -25,7 +25,8 @@ namespace MQManager.GUI.Forms
 	/// <summary>
 	/// Summary description for ForwardMessageDialog.
 	/// </summary>
-	public class ForwardMessageDialog : Form
+    [CLSCompliant(false)]
+    public class ForwardMessageDialog : Form
 	{
 		private Label label1;
 		private TextBox forwardQueueUri;
@@ -178,6 +179,6 @@ namespace MQManager.GUI.Forms
 		}
 	}
 
-
+    [CLSCompliant(false)]
 	public delegate void ForwardEventHandler(IMessagingProvider forwardingProvider, string label, bool copy);
 }

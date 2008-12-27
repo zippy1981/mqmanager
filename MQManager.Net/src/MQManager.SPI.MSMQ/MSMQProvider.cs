@@ -43,6 +43,7 @@ namespace MQManager.SPI.MSMQ
             get { return queue.Path; }
 		}
 
+        [CLSCompliant(false)]
         public uint MessageCount
 	    {
 	        get

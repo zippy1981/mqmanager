@@ -1,10 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
+# SharpDevelop 3.0.0.3054
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External Code", "External Code", "{DDA1AF3E-D8FA-4A4E-AB57-3C92B4B137C1}"
 	ProjectSection(FolderStartupServices) = postProject
 		{B4F97281-0DBD-4835-9ED8-7DFB966E87FF} = {B4F97281-0DBD-4835-9ED8-7DFB966E87FF}
 	EndProjectSection
+	ProjectSection(SolutionItems) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aga.Controls", "src\Aga.Controls\Aga.Controls.csproj", "{E73BB233-D88B-44A7-A98F-D71EE158381D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visualizer", "src\Visualizer\Visualizer.csproj", "{617C2C77-0738-44A4-B7BD-29637937D09F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DOCS", "DOCS", "{67BF839A-132A-4155-A870-FFBC0FB0274A}"
 	ProjectSection(SolutionItems) = preProject
@@ -23,12 +30,6 @@ EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MQManagerSetup", "src\MQManagerSetup\MQManagerSetup.vdproj", "{8DC34CEF-AE61-4D5C-8A45-E2CED42593FE}"
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MQManagerSetupSource", "src\MQManagerSetupSource\MQManagerSetupSource.vdproj", "{11C37B52-EA16-4DE7-8080-8AF2FAE38B9E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aga.Controls", "src\Aga.Controls\Aga.Controls.csproj", "{E73BB233-D88B-44A7-A98F-D71EE158381D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualizerControl", "src\VisualizerControl\VisualizerControl.csproj", "{49F5835F-B647-444D-BAAA-6AC39D8DDE59}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualizerForm", "src\VisualizerForm\VisualizerForm.csproj", "{617C2C77-0738-44A4-B7BD-29637937D09F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -72,12 +73,11 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{E73BB233-D88B-44A7-A98F-D71EE158381D} = {DDA1AF3E-D8FA-4A4E-AB57-3C92B4B137C1}
-		{49F5835F-B647-444D-BAAA-6AC39D8DDE59} = {DDA1AF3E-D8FA-4A4E-AB57-3C92B4B137C1}
-		{617C2C77-0738-44A4-B7BD-29637937D09F} = {DDA1AF3E-D8FA-4A4E-AB57-3C92B4B137C1}
-	EndGlobalSection
 	GlobalSection(TextTemplating) = postSolution
 		TextTemplating = 1
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{617C2C77-0738-44A4-B7BD-29637937D09F} = {DDA1AF3E-D8FA-4A4E-AB57-3C92B4B137C1}
+		{E73BB233-D88B-44A7-A98F-D71EE158381D} = {DDA1AF3E-D8FA-4A4E-AB57-3C92B4B137C1}
 	EndGlobalSection
 EndGlobal

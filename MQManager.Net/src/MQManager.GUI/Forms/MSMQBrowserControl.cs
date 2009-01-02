@@ -433,12 +433,7 @@ namespace MQManager.GUI.Forms
 		
 		private void visualizeButton_Click(object sender, EventArgs e)
 		{
-			
-			using(Visualizer visualizer = new Visualizer(true))
-			{
-				visualizer.LoadXmlFromString(peekedMessage.Text);
-				visualizer.ShowDialog();
-			}
+			Visualizer.ShowModal_LoadXmlFromString(peekedMessage.Text);
 		}
 	}
 

@@ -47,7 +47,7 @@ namespace MQManager.SPI.MSMQ
 		}
 		
         /// <summary>
-        /// Creates a <see cref="HostMSMQs"/> object and populates it with the hosts MSMQs.
+        /// Creates a <see cref="MSMQHost"/> object and populates it with the host's MSMQs.
         /// </summary>
         /// <param name="hostName">The host </param>
 		public MSMQHost(string hostName)

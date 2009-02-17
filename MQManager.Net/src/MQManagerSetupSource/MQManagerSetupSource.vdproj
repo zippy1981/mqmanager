@@ -263,7 +263,7 @@
                         {
                             "{9EF0B969-E518-4E46-987F-47570745A589}:_1843D9570E0745E4B0AF28698FEDF4F3"
                             {
-                            "Name" = "8:VisualizerForm"
+                            "Name" = "8:Visualizer"
                             "AlwaysCreate" = "11:FALSE"
                             "Condition" = "8:"
                             "Transitive" = "11:FALSE"
@@ -279,17 +279,6 @@
                             "Condition" = "8:"
                             "Transitive" = "11:FALSE"
                             "Property" = "8:_3E2C78D049994CF1A936A123FC3BCB90"
-                                "Folders"
-                                {
-                                }
-                            }
-                            "{9EF0B969-E518-4E46-987F-47570745A589}:_47F2386763984830B7B3B87D12913AA0"
-                            {
-                            "Name" = "8:VisualizerControl"
-                            "AlwaysCreate" = "11:FALSE"
-                            "Condition" = "8:"
-                            "Transitive" = "11:FALSE"
-                            "Property" = "8:_7BA166B4F4E4454E9B1C287945F47132"
                                 "Folders"
                                 {
                                 }
@@ -381,7 +370,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MQManager.NET"
         "ProductCode" = "8:{7D8580EC-E1D3-4742-82DA-27D80744742D}"
-        "PackageCode" = "8:{66E0677A-D3FB-46C3-8653-74654040F858}"
+        "PackageCode" = "8:{ED03E6F3-2108-458F-BBE0-D48A001120F7}"
         "UpgradeCode" = "8:{F7D727EF-C957-430F-AC4D-0995681C9417}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"

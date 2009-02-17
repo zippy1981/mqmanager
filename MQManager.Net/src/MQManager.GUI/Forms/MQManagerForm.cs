@@ -25,29 +25,32 @@ namespace MQManager.GUI.Forms
 	/// </summary>
 	public class MQManagerForm : Form
 	{
-		private MenuItem menuItemNew;
-		private MenuItem menuItemNewConnection;
-		private MenuItem menuItemBrowseHost;
-		private MenuItem menuItemClose;
-		private MenuItem menuItemExit;
-		private MainMenu mainMenu;
-		private TabControl mainTabs;
-		private MenuItem menuItemEdit;
-        private MenuItem menuItem3;
+		private MenuItem _menuItemNew;
+		private MenuItem _menuItemNewConnection;
+		private MenuItem _menuItemBrowseHost;
+		private MenuItem _menuItemClose;
+		private MenuItem _menuItemExit;
+		private MainMenu _mainMenu;
+		private TabControl _mainTabs;
+		private MenuItem _menuItemEdit;
+        private MenuItem _menuItem3;
+        private ContextMenuStrip _contextMenuTab;
+        private MenuItem _menuItemHelp;
+        private MenuItem _menuItem1;
+        private ToolStripMenuItem _closeTabToolStripMenuItem;
         private IContainer components;
-        private ContextMenuStrip contextMenuTab;
-        private MenuItem menuItemHelp;
-        private MenuItem menuItem1;
-        private ToolStripMenuItem closeTabToolStripMenuItem;
 
-		public MQManagerForm()
+		/// <summary>
+		/// Default constructor.
+		/// </summary>
+        public MQManagerForm()
 		{
 			//
 			// Required for Windows Form Designer support
 			//
 			InitializeComponent();
             // TODO: Redo the main menu as a menustrip.
-		    Menu = mainMenu;
+		    Menu = _mainMenu;
 		}
 
 		/// <summary>
@@ -73,60 +76,60 @@ namespace MQManager.GUI.Forms
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
-            this.mainMenu = new System.Windows.Forms.MainMenu(this.components);
+            this._mainMenu = new System.Windows.Forms.MainMenu(this.components);
             this.menuItemFile = new System.Windows.Forms.MenuItem();
-            this.menuItemBrowseHost = new System.Windows.Forms.MenuItem();
-            this.menuItemNew = new System.Windows.Forms.MenuItem();
-            this.menuItemNewConnection = new System.Windows.Forms.MenuItem();
+            this._menuItemBrowseHost = new System.Windows.Forms.MenuItem();
+            this._menuItemNew = new System.Windows.Forms.MenuItem();
+            this._menuItemNewConnection = new System.Windows.Forms.MenuItem();
             this.menuItemNewQueue = new System.Windows.Forms.MenuItem();
-            this.menuItemClose = new System.Windows.Forms.MenuItem();
-            this.menuItemExit = new System.Windows.Forms.MenuItem();
-            this.menuItemEdit = new System.Windows.Forms.MenuItem();
-            this.menuItem3 = new System.Windows.Forms.MenuItem();
-            this.menuItemHelp = new System.Windows.Forms.MenuItem();
-            this.menuItem1 = new System.Windows.Forms.MenuItem();
-            this.mainTabs = new System.Windows.Forms.TabControl();
-            this.contextMenuTab = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.closeTabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuTab.SuspendLayout();
+            this._menuItemClose = new System.Windows.Forms.MenuItem();
+            this._menuItemExit = new System.Windows.Forms.MenuItem();
+            this._menuItemEdit = new System.Windows.Forms.MenuItem();
+            this._menuItem3 = new System.Windows.Forms.MenuItem();
+            this._menuItemHelp = new System.Windows.Forms.MenuItem();
+            this._menuItem1 = new System.Windows.Forms.MenuItem();
+            this._mainTabs = new System.Windows.Forms.TabControl();
+            this._contextMenuTab = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this._closeTabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this._contextMenuTab.SuspendLayout();
             this.SuspendLayout();
             // 
-            // mainMenu
+            // _mainMenu
             // 
-            this.mainMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this._mainMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuItemFile,
-            this.menuItemEdit,
-            this.menuItemHelp});
+            this._menuItemEdit,
+            this._menuItemHelp});
             // 
             // menuItemFile
             // 
             this.menuItemFile.Index = 0;
             this.menuItemFile.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItemBrowseHost,
-            this.menuItemNew,
-            this.menuItemClose,
-            this.menuItemExit});
+            this._menuItemBrowseHost,
+            this._menuItemNew,
+            this._menuItemClose,
+            this._menuItemExit});
             this.menuItemFile.Text = "&File";
             // 
-            // menuItemBrowseHost
+            // _menuItemBrowseHost
             // 
-            this.menuItemBrowseHost.Index = 0;
-            this.menuItemBrowseHost.Text = "List &Host Queues";
-            this.menuItemBrowseHost.Click += new System.EventHandler(this.MenuItemBrowseHostClick);
+            this._menuItemBrowseHost.Index = 0;
+            this._menuItemBrowseHost.Text = "List &Host Queues";
+            this._menuItemBrowseHost.Click += new System.EventHandler(this.MenuItemBrowseHostClick);
             // 
-            // menuItemNew
+            // _menuItemNew
             // 
-            this.menuItemNew.Index = 1;
-            this.menuItemNew.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItemNewConnection,
+            this._menuItemNew.Index = 1;
+            this._menuItemNew.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this._menuItemNewConnection,
             this.menuItemNewQueue});
-            this.menuItemNew.Text = "&New";
+            this._menuItemNew.Text = "&New";
             // 
-            // menuItemNewConnection
+            // _menuItemNewConnection
             // 
-            this.menuItemNewConnection.Index = 0;
-            this.menuItemNewConnection.Text = "C&onnection";
-            this.menuItemNewConnection.Click += new System.EventHandler(this.menuItemNewConnection_Click);
+            this._menuItemNewConnection.Index = 0;
+            this._menuItemNewConnection.Text = "C&onnection";
+            this._menuItemNewConnection.Click += new System.EventHandler(this.menuItemNewConnection_Click);
             // 
             // menuItemNewQueue
             // 
@@ -134,78 +137,79 @@ namespace MQManager.GUI.Forms
             this.menuItemNewQueue.Text = "&Queue";
             this.menuItemNewQueue.Click += new System.EventHandler(this.MenuItemNewQueueClick);
             // 
-            // menuItemClose
+            // _menuItemClose
             // 
-            this.menuItemClose.Enabled = false;
-            this.menuItemClose.Index = 2;
-            this.menuItemClose.Text = "&Close Tab";
-            this.menuItemClose.Click += new System.EventHandler(this.menuItemClose_Click);
+            this._menuItemClose.Enabled = false;
+            this._menuItemClose.Index = 2;
+            this._menuItemClose.Text = "&Close Tab";
+            this._menuItemClose.Click += new System.EventHandler(this.menuItemClose_Click);
             // 
-            // menuItemExit
+            // _menuItemExit
             // 
-            this.menuItemExit.Index = 3;
-            this.menuItemExit.Text = "E&xit";
-            this.menuItemExit.Click += new System.EventHandler(this.MenuItemExit_Click);
+            this._menuItemExit.Index = 3;
+            this._menuItemExit.Text = "E&xit";
+            this._menuItemExit.Click += new System.EventHandler(this.MenuItemExit_Click);
             // 
-            // menuItemEdit
+            // _menuItemEdit
             // 
-            this.menuItemEdit.Index = 1;
-            this.menuItemEdit.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem3});
-            this.menuItemEdit.Text = "&Edit";
+            this._menuItemEdit.Index = 1;
+            this._menuItemEdit.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this._menuItem3});
+            this._menuItemEdit.Text = "&Edit";
             // 
-            // menuItem3
+            // _menuItem3
             // 
-            this.menuItem3.Index = 0;
-            this.menuItem3.Text = "Properties";
+            this._menuItem3.Index = 0;
+            this._menuItem3.Text = "Properties";
             // 
-            // menuItemHelp
+            // _menuItemHelp
             // 
-            this.menuItemHelp.Index = 2;
-            this.menuItemHelp.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem1});
-            this.menuItemHelp.Text = "&Help";
+            this._menuItemHelp.Index = 2;
+            this._menuItemHelp.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this._menuItem1});
+            this._menuItemHelp.Text = "&Help";
             // 
-            // menuItem1
+            // _menuItem1
             // 
-            this.menuItem1.Index = 0;
-            this.menuItem1.Text = "&About";
-            this.menuItem1.Click += new System.EventHandler(this.menuItem1_Click);
+            this._menuItem1.Index = 0;
+            this._menuItem1.Text = "&About";
+            this._menuItem1.Click += new System.EventHandler(this.menuItem1_Click);
             // 
-            // mainTabs
+            // _mainTabs
             // 
-            this.mainTabs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this._mainTabs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.mainTabs.ContextMenuStrip = this.contextMenuTab;
-            this.mainTabs.Location = new System.Drawing.Point(0, 0);
-            this.mainTabs.Name = "mainTabs";
-            this.mainTabs.SelectedIndex = 0;
-            this.mainTabs.Size = new System.Drawing.Size(860, 611);
-            this.mainTabs.TabIndex = 0;
+            this._mainTabs.ContextMenuStrip = this._contextMenuTab;
+            this._mainTabs.Location = new System.Drawing.Point(0, 0);
+            this._mainTabs.Name = "_mainTabs";
+            this._mainTabs.SelectedIndex = 0;
+            this._mainTabs.Size = new System.Drawing.Size(860, 611);
+            this._mainTabs.TabIndex = 0;
+            this._mainTabs.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mainTabs_MouseDown);
             // 
-            // contextMenuTab
+            // _contextMenuTab
             // 
-            this.contextMenuTab.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.closeTabToolStripMenuItem});
-            this.contextMenuTab.Name = "contextMenuTab";
-            this.contextMenuTab.Size = new System.Drawing.Size(133, 26);
+            this._contextMenuTab.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this._closeTabToolStripMenuItem});
+            this._contextMenuTab.Name = "_contextMenuTab";
+            this._contextMenuTab.Size = new System.Drawing.Size(133, 26);
             // 
-            // closeTabToolStripMenuItem
+            // _closeTabToolStripMenuItem
             // 
-            this.closeTabToolStripMenuItem.Name = "closeTabToolStripMenuItem";
-            this.closeTabToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
-            this.closeTabToolStripMenuItem.Text = "&Close Tab";
-            this.closeTabToolStripMenuItem.Click += new System.EventHandler(this.closeTabToolStripMenuItem_Click);
+            this._closeTabToolStripMenuItem.Name = "_closeTabToolStripMenuItem";
+            this._closeTabToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this._closeTabToolStripMenuItem.Text = "&Close Tab";
+            this._closeTabToolStripMenuItem.Click += new System.EventHandler(this.closeTabToolStripMenuItem_Click);
             // 
             // MQManagerForm
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
             this.ClientSize = new System.Drawing.Size(857, 606);
-            this.Controls.Add(this.mainTabs);
+            this.Controls.Add(this._mainTabs);
             this.Name = "MQManagerForm";
             this.Text = "MQManagerForm";
-            this.contextMenuTab.ResumeLayout(false);
+            this._contextMenuTab.ResumeLayout(false);
             this.ResumeLayout(false);
 
 		}
@@ -217,37 +221,36 @@ namespace MQManager.GUI.Forms
 		{
 			QueueConnectDialog connect = new QueueConnectDialog();
 			connect.Show();
-			connect.OnConnect += ConnectToQueue;
+			connect.OnConnect += connectToQueue;
 		}
 
 
         private void closeTabToolStripMenuItem_Click(object sender, EventArgs e)
 	    {
         	// go through all tab pages
-            for (int i = 0; i < mainTabs.TabPages.Count; i++)
+            for (int i = 0; i < _mainTabs.TabPages.Count; i++)
             {
-                if (mainTabs.GetTabRect(i).Contains(mainTabs.PointToClient(Cursor.Position)))
+                if (_mainTabs.GetTabRect(i).Contains(_mainTabs.PointToClient(Cursor.Position)))
                 {
                     // we found the tabpage we want to remove
-                    string key = mainTabs.TabPages[i].Name;
-                    mainTabs.TabPages.RemoveAt(i);
+                    _mainTabs.TabPages.Remove(_mainTabs.SelectedTab);
                     break;
                 }
             }
 
-	        if (mainTabs.TabCount == 0) { menuItemClose.Enabled = false; }
+	        if (_mainTabs.TabCount == 0) { _menuItemClose.Enabled = false; }
 	    }
         
         /// <summary>
-        /// Conects to a queue.
+        /// Connects to a queue.
         /// </summary>
         /// <param name="connectionString">The queue connection string.</param>
-        private void ConnectToQueue(string connectionString)
+        private void connectToQueue(string connectionString)
 		{
 	    	
-	        if (mainTabs.TabPages.ContainsKey(connectionString))
+	        if (_mainTabs.TabPages.ContainsKey(connectionString))
 	        {
-	            mainTabs.SelectTab(connectionString);
+	            _mainTabs.SelectTab(connectionString);
 	        }
             else
 	        {
@@ -266,9 +269,9 @@ namespace MQManager.GUI.Forms
             	
             	//TODO: Add a right click menu item to close the control. Ensure that it will disable the "File | Close" menu item.
             	queueBrowser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            	mainTabs.Controls.Add(tabPage);
-            	mainTabs.SelectTab(tabPage);
-            	menuItemClose.Enabled = true;
+            	_mainTabs.Controls.Add(tabPage);
+            	_mainTabs.SelectTab(tabPage);
+            	_menuItemClose.Enabled = true;
 		    }
 		}
 		
@@ -276,9 +279,9 @@ namespace MQManager.GUI.Forms
         /// Connects to a host to get a list of queues.
         /// </summary>
         /// <param name="hostName">The host to connect to.</param>
-        private void ListHostQueues (string hostName)
+        private void listHostQueues (string hostName)
 		{
-			menuItemClose.Enabled = true;
+			_menuItemClose.Enabled = true;
 			TabPage tabPage = new TabPage();
 			tabPage.Text = string.Format("[{0}]", hostName);
 			tabPage.ToolTipText = string.Format("Queues for: {0}", hostName);
@@ -291,8 +294,8 @@ namespace MQManager.GUI.Forms
 			
 			//TODO: Add a right click menu item to close the control. Ensure that it will disable the "File | Close" menu item.
 			hostBrowser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            mainTabs.Controls.Add(tabPage);
-            mainTabs.SelectTab(tabPage);
+            _mainTabs.Controls.Add(tabPage);
+            _mainTabs.SelectTab(tabPage);
 		}
 
 	    private void hostBrowser_MessagingProviderNodeDoubleClick(object sender, TreeNodeAdvMouseEventArgs e)
@@ -301,7 +304,7 @@ namespace MQManager.GUI.Forms
             if (node == null) { return; }
 	        string host = node.Text;
 	       	    
-	        ConnectToQueue(host);
+	        connectToQueue(host);
 	    }
 
 
@@ -312,17 +315,17 @@ namespace MQManager.GUI.Forms
 
         private void menuItemClose_Click(object sender, EventArgs e)
         {
-            mainTabs.Controls.Remove(mainTabs.SelectedTab);
-            if (mainTabs.Controls.Count == 0)
+            _mainTabs.Controls.Remove(_mainTabs.SelectedTab);
+            if (_mainTabs.Controls.Count == 0)
             {
-                menuItemClose.Enabled = false;
+                _menuItemClose.Enabled = false;
             }
         }
 		
 		void MenuItemBrowseHostClick(object sender, EventArgs e)
 		{
 			ConnectMessageDialog connect = new ConnectMessageDialog("Connect to host.");
-			connect.OnConnect += ListHostQueues;
+			connect.OnConnect += listHostQueues;
 			connect.Show();
 		}
         
@@ -336,6 +339,24 @@ namespace MQManager.GUI.Forms
         {
             Form frm = new AboutBox();
             frm.ShowDialog();
+        }
+
+        private void mainTabs_MouseDown(object sender, MouseEventArgs e)
+        {
+            if((e.Button | MouseButtons.Right) != MouseButtons.Right)
+            {
+                return;
+            }
+            // go through all tab pages
+            for (int i = 0; i < _mainTabs.TabPages.Count; i++)
+            {
+                if (_mainTabs.GetTabRect(i).Contains(_mainTabs.PointToClient(Cursor.Position)))
+                {
+                    // we found the tabpage we want to act upon
+                    _mainTabs.SelectTab(i);
+                    break;
+                }
+            }
         }
 	}
 }

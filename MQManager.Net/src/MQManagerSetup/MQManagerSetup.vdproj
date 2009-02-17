@@ -15,31 +15,13 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_4406A996CDA99CD5B08795F1AEA831A7"
-        "OwnerKey" = "8:_7EF2A7D7A5C947D59DD571705F63154A"
+        "MsmKey" = "8:_7ED09105BADEEFA909F3BFE12E0EA41E"
+        "OwnerKey" = "8:_F302CEAC9256097B22FDE977DB027A8A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_4406A996CDA99CD5B08795F1AEA831A7"
-        "OwnerKey" = "8:_EE60EABD66FF1CA9393C2EB3C654C14A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_5EABCAFA1BAEEDA5B4B5B32587292C7E"
-        "OwnerKey" = "8:_7EF2A7D7A5C947D59DD571705F63154A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_6DF4FF353CEC06556F57FFC587B9563F"
-        "OwnerKey" = "8:_D2DF5400A104E28310DF6794089AEC74"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_6DF4FF353CEC06556F57FFC587B9563F"
+        "MsmKey" = "8:_7ED09105BADEEFA909F3BFE12E0EA41E"
         "OwnerKey" = "8:_7EF2A7D7A5C947D59DD571705F63154A"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -51,20 +33,26 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_D2DF5400A104E28310DF6794089AEC74"
+        "MsmKey" = "8:_93DA9A300FF2650CFE2A98300DA84711"
         "OwnerKey" = "8:_7EF2A7D7A5C947D59DD571705F63154A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_EE60EABD66FF1CA9393C2EB3C654C14A"
+        "MsmKey" = "8:_E521295859F8F607452349C67F4D280A"
         "OwnerKey" = "8:_7EF2A7D7A5C947D59DD571705F63154A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_EE60EABD66FF1CA9393C2EB3C654C14A"
-        "OwnerKey" = "8:_5EABCAFA1BAEEDA5B4B5B32587292C7E"
+        "MsmKey" = "8:_E521295859F8F607452349C67F4D280A"
+        "OwnerKey" = "8:_93DA9A300FF2650CFE2A98300DA84711"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F302CEAC9256097B22FDE977DB027A8A"
+        "OwnerKey" = "8:_7EF2A7D7A5C947D59DD571705F63154A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -82,31 +70,25 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_5EABCAFA1BAEEDA5B4B5B32587292C7E"
+        "OwnerKey" = "8:_93DA9A300FF2650CFE2A98300DA84711"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_EE60EABD66FF1CA9393C2EB3C654C14A"
+        "OwnerKey" = "8:_F302CEAC9256097B22FDE977DB027A8A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_4406A996CDA99CD5B08795F1AEA831A7"
+        "OwnerKey" = "8:_7ED09105BADEEFA909F3BFE12E0EA41E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_D2DF5400A104E28310DF6794089AEC74"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_6DF4FF353CEC06556F57FFC587B9563F"
+        "OwnerKey" = "8:_E521295859F8F607452349C67F4D280A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -201,76 +183,14 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_4406A996CDA99CD5B08795F1AEA831A7"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_7ED09105BADEEFA909F3BFE12E0EA41E"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:ICSharpCode.TextEditor, Version=3.0.0.3437, Culture=neutral, PublicKeyToken=4d61825e8dd49f1a, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:MQManager.SPI, Version=0.5.3334.37513, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_4406A996CDA99CD5B08795F1AEA831A7"
-                    {
-                    "Name" = "8:ICSharpCode.TextEditor.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:ICSharpCode.TextEditor.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_DDBDBA1D3E324B4881A166DFD3037E3C"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5EABCAFA1BAEEDA5B4B5B32587292C7E"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:VisualizerForm, Version=5.6.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_5EABCAFA1BAEEDA5B4B5B32587292C7E"
-                    {
-                    "Name" = "8:VisualizerForm.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:VisualizerForm.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_DDBDBA1D3E324B4881A166DFD3037E3C"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6DF4FF353CEC06556F57FFC587B9563F"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MQManager.SPI, Version=0.5.3265.38091, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_6DF4FF353CEC06556F57FFC587B9563F"
+                    "_7ED09105BADEEFA909F3BFE12E0EA41E"
                     {
                     "Name" = "8:MQManager.SPI.dll"
                     "Attributes" = "3:512"
@@ -294,20 +214,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D2DF5400A104E28310DF6794089AEC74"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_93DA9A300FF2650CFE2A98300DA84711"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MQManager.SPI.MSMQ, Version=0.5.3265.38091, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:VisualizerForm, Version=6.1.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_D2DF5400A104E28310DF6794089AEC74"
+                    "_93DA9A300FF2650CFE2A98300DA84711"
                     {
-                    "Name" = "8:MQManager.SPI.MSMQ.dll"
+                    "Name" = "8:VisualizerForm.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:MQManager.SPI.MSMQ.dll"
+            "SourcePath" = "8:VisualizerForm.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_DDBDBA1D3E324B4881A166DFD3037E3C"
@@ -325,20 +245,51 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_EE60EABD66FF1CA9393C2EB3C654C14A"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E521295859F8F607452349C67F4D280A"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:VisualizerControl, Version=5.6.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:ICSharpCode.TextEditor, Version=3.0.0.3683, Culture=neutral, PublicKeyToken=4d61825e8dd49f1a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_EE60EABD66FF1CA9393C2EB3C654C14A"
+                    "_E521295859F8F607452349C67F4D280A"
                     {
-                    "Name" = "8:VisualizerControl.dll"
+                    "Name" = "8:ICSharpCode.TextEditor.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:VisualizerControl.dll"
+            "SourcePath" = "8:ICSharpCode.TextEditor.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_DDBDBA1D3E324B4881A166DFD3037E3C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F302CEAC9256097B22FDE977DB027A8A"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:MQManager.SPI.MSMQ, Version=0.5.3334.37514, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_F302CEAC9256097B22FDE977DB027A8A"
+                    {
+                    "Name" = "8:MQManager.SPI.MSMQ.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:MQManager.SPI.MSMQ.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_DDBDBA1D3E324B4881A166DFD3037E3C"
@@ -443,14 +394,14 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MQManager.NET"
-        "ProductCode" = "8:{104A19E9-56CC-4CC8-BC3F-5D4072F842C0}"
-        "PackageCode" = "8:{C129B3DA-0A13-4695-88EE-F13769A98280}"
+        "ProductCode" = "8:{C962A7E6-B24E-451D-9A2A-BC2814C7BF73}"
+        "PackageCode" = "8:{7A4FA81D-32E5-489D-AD39-87FEBF0A3D70}"
         "UpgradeCode" = "8:{B67F6E87-DDA7-4607-8636-13BB041194A2}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:0.5.0"
+        "ProductVersion" = "8:0.5.02"
         "Manufacturer" = "8:Zippysoft"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://opensource.digitalfocus.com/mqmanager"
@@ -978,7 +929,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_7EF2A7D7A5C947D59DD571705F63154A"
             {
-            "SourcePath" = "8:..\\MQManager.GUI\\obj\\Debug\\MQManager.GUI.exe"
+            "SourcePath" = "8:..\\MQManager.GUI\\obj\\Release\\MQManager.GUI.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_DDBDBA1D3E324B4881A166DFD3037E3C"

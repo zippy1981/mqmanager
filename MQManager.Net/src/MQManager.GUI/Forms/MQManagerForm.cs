@@ -38,6 +38,8 @@ namespace MQManager.GUI.Forms
         private MenuItem _menuItemHelp;
         private MenuItem _menuItem1;
         private ToolStripMenuItem _closeTabToolStripMenuItem;
+        private MenuItem menuItemView;
+        private MenuItem menuItemRefresh;
         private IContainer components;
 
 		/// <summary>
@@ -91,6 +93,8 @@ namespace MQManager.GUI.Forms
             this._mainTabs = new System.Windows.Forms.TabControl();
             this._contextMenuTab = new System.Windows.Forms.ContextMenuStrip(this.components);
             this._closeTabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemView = new System.Windows.Forms.MenuItem();
+            this.menuItemRefresh = new System.Windows.Forms.MenuItem();
             this._contextMenuTab.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,6 +103,7 @@ namespace MQManager.GUI.Forms
             this._mainMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuItemFile,
             this._menuItemEdit,
+            this.menuItemView,
             this._menuItemHelp});
             // 
             // menuItemFile
@@ -164,7 +169,7 @@ namespace MQManager.GUI.Forms
             // 
             // _menuItemHelp
             // 
-            this._menuItemHelp.Index = 2;
+            this._menuItemHelp.Index = 3;
             this._menuItemHelp.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this._menuItem1});
             this._menuItemHelp.Text = "&Help";
@@ -184,7 +189,7 @@ namespace MQManager.GUI.Forms
             this._mainTabs.Location = new System.Drawing.Point(0, 0);
             this._mainTabs.Name = "_mainTabs";
             this._mainTabs.SelectedIndex = 0;
-            this._mainTabs.Size = new System.Drawing.Size(860, 611);
+            this._mainTabs.Size = new System.Drawing.Size(861, 612);
             this._mainTabs.TabIndex = 0;
             this._mainTabs.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mainTabs_MouseDown);
             // 
@@ -193,18 +198,32 @@ namespace MQManager.GUI.Forms
             this._contextMenuTab.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._closeTabToolStripMenuItem});
             this._contextMenuTab.Name = "_contextMenuTab";
-            this._contextMenuTab.Size = new System.Drawing.Size(133, 26);
+            this._contextMenuTab.Size = new System.Drawing.Size(157, 26);
             // 
             // _closeTabToolStripMenuItem
             // 
             this._closeTabToolStripMenuItem.Name = "_closeTabToolStripMenuItem";
-            this._closeTabToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this._closeTabToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this._closeTabToolStripMenuItem.Text = "&Close Tab";
             this._closeTabToolStripMenuItem.Click += new System.EventHandler(this.closeTabToolStripMenuItem_Click);
             // 
+            // menuItemView
+            // 
+            this.menuItemView.Index = 2;
+            this.menuItemView.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.menuItemRefresh});
+            this.menuItemView.Text = "&View";
+            // 
+            // menuItemRefresh
+            // 
+            this.menuItemRefresh.Enabled = false;
+            this.menuItemRefresh.Index = 0;
+            this.menuItemRefresh.Shortcut = System.Windows.Forms.Shortcut.F5;
+            this.menuItemRefresh.Text = "&Refresh";
+            // 
             // MQManagerForm
             // 
-            this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+            this.AutoScaleBaseSize = new System.Drawing.Size(6, 15);
             this.ClientSize = new System.Drawing.Size(857, 606);
             this.Controls.Add(this._mainTabs);
             this.Name = "MQManagerForm";
@@ -220,8 +239,9 @@ namespace MQManager.GUI.Forms
 		private void menuItemNewConnection_Click(object sender, EventArgs e)
 		{
 			QueueConnectDialog connect = new QueueConnectDialog();
-			connect.Show();
-			connect.OnConnect += connectToQueue;
+            connect.OnConnect += connectToQueue;
+		    connect.ShowDialog();
+            connect.OnConnect -= connectToQueue;
 		}
 
 
@@ -326,7 +346,8 @@ namespace MQManager.GUI.Forms
 		{
 			ConnectMessageDialog connect = new ConnectMessageDialog("Connect to host.");
 			connect.OnConnect += listHostQueues;
-			connect.Show();
+		    connect.ShowDialog();
+		    connect.OnConnect -= listHostQueues;
 		}
         
 		void MenuItemNewQueueClick(object sender, EventArgs e)
